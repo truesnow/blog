@@ -8497,7 +8497,7 @@ html {
   float: left;
   font-size: 1.5rem;
   color: #ffffff;
-  margin: 0 20px;
+  margin: 5px 20px;
   position: relative;
 }
 
@@ -8575,6 +8575,7 @@ html {
   width: 100%;
   line-height: 1;
   padding: 9px;
+  margin-bottom: 5px;
 }
 
 .home-page .contact form button {
