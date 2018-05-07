@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
+    <!-- Inspired by http://diana-adrianne.com/ -->
     <div class="home-page">
         <div class="container-fluid">
             <!-- INTRODUCTION -->
@@ -20,12 +21,13 @@
             <!-- MENU -->
             <div class="row menu text-center">
                 <ul class="">
-                    <li>
-                        <a href="https://github.com/truesnow" title="truesnow" target="_blank">Github</a>
-                    </li>
-                    <li>
-                        <a href="/images/truesnow-wechat-qrcode.png" target="_blank" title="微信号：541817418" class="wechat-qrcode">Wechat</a>
-                    </li>
+                    <li> <a href="http://sleepeatcode.com/" title="Home">Home</a> </li>
+                    <li> <a href="http://larabase.sleepeatcode.com/" title="LaraBase - A Laravel simple pratice project." target="_blank">LaraBase</a> </li>
+                    <li> <a href="http://larabbs.sleepeatcode.com/" title="LaraBBS - A Laravel BBS pratice project." target="_blank">LaraBBS</a> </li>
+                    <li> <a href="https://lilikill.github.io/web-dev-learn-mdn/" title="MDN DEMO" target="_blank">MDN DEMO</a> </li>
+                    <li> <a href="https://legacy.gitbook.com/@lilikill" title="GitBook" target="_blank">GitBook</a> </li>
+                    <li> <a href="https://github.com/truesnow" title="truesnow" target="_blank">Github</a> </li>
+                    <li> <a href="/images/truesnow-wechat-qrcode.png" target="_blank" title="微信号：541817418" class="wechat-qrcode">Wechat</a> </li>
                 </ul>
             </div>
 

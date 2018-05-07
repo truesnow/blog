@@ -20,15 +20,22 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app'
 // });
+//
+
+$.extend({
+    scrollFixed: function (ele) {
+        var eleOffset = ele.offset().top;
+        $(window).scroll(function(){
+            var scrollPos = $(window).scrollTop();
+            if(scrollPos >= eleOffset){
+                ele.addClass("fixed");
+            }else{
+                ele.removeClass("fixed");
+            }
+        });
+    }
+});
 
 $(document).ready(function() {
-    var navOffset=$(".menu").offset().top;
-    $(window).scroll(function(){
-        var scrollPos = $(window).scrollTop();
-        if(scrollPos >= navOffset){
-            $(".menu").addClass("fixed");
-        }else{
-            $(".menu").removeClass("fixed");
-        }
-    });
+    $.scrollFixed($(".menu"));
 });
