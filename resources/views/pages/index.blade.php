@@ -88,7 +88,7 @@
             </div>
 
             <!-- CONTACT -->
-            <div class="row contact">
+            <!-- <div class="row contact">
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="text-center title">CONTACT</h2>
                     <form action="">
@@ -110,7 +110,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> -->
             <div class="row footer">
                 <p class="text-center">Copyright &copy; 2018 truesnow</p>
             </div>
