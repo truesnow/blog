@@ -8,10 +8,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.gif">
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body>
+<body class="theme-default">
     @include('layouts._nav')
     <div class="container">
-        @include('layouts._messages')
+        @include('shares._messages')
         @yield('content')
     </div>
     @include('layouts._footer')

@@ -17,6 +17,10 @@ html {
     font-size: 10px;
 }
 
+body.theme-default {
+    padding-top: 60px;
+}
+
 .fixed {
     position: fixed;
     width: 100%;
@@ -218,11 +222,6 @@ html {
         line-height: 100px;
         background: #dadedf url(../images/blackwood.jpg) repeat center bottom scroll;
     }
-}
-
-/* new homepage */
-body {
-    padding-top: 60px;
 }
 
 
