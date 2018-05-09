@@ -5,7 +5,7 @@
     <meta name="author" content="truesnow">
     <meta name="description" content="Sleep, eat, code. TRUESNOW's personal website.">
     <title>@yield('title') - SLEEP EAT CODE</title>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.gif">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.gif">
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="theme-default">

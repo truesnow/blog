@@ -8363,6 +8363,12 @@ body.theme-default {
   padding-top: 60px;
 }
 
+body.theme-default .delete-btn {
+  position: relative;
+  right: 0;
+  float: right;
+}
+
 .fixed {
   position: fixed;
   width: 100%;

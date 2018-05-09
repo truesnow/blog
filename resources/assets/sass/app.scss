@@ -19,6 +19,11 @@ html {
 
 body.theme-default {
     padding-top: 60px;
+    .delete-btn {
+        position: relative;
+        right: 0;
+        float: right;
+    }
 }
 
 .fixed {
