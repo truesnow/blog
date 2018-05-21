@@ -8,12 +8,6 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('pages.index');
+        return $this->view('pages.index');
     }
-
-    public function home()
-    {
-        return view('pages.home');
-    }
-
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="truesnow">
     <meta name="description" content="Sleep, eat, code. TRUESNOW's personal website.">
-    <title>@yield('title') - SLEEP EAT CODE</title>
+    <title>@yield('title') - SleepEatCode</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.gif">
     <link rel="stylesheet" href="/css/app.css">
 </head>

@@ -8378,20 +8378,20 @@ body.theme-default .delete-btn {
   z-index: 10000;
 }
 
-/* homepage */
+/* diana homepage */
 
-.home-page {
+body.theme-diana {
   background: #c0c0c0 url(/images/abstract-background-black-and-white-935871.jpg?3bcd93419f3eec2b5498f4ee0d2dacc2) no-repeat center center fixed;
 }
 
-.home-page h2.title {
+body.theme-diana h2.title {
   text-transform: uppercase;
   font-size: 3rem;
   letter-spacing: 0.1rem;
   color: #333333;
 }
 
-.home-page h2.title:after {
+body.theme-diana h2.title:after {
   content: " ";
   display: block;
   height: 1px;
@@ -8402,12 +8402,12 @@ body.theme-default .delete-btn {
   border-bottom-width: 1px;
 }
 
-.home-page .introduction {
+body.theme-diana .introduction {
   height: 300px;
   background: #808080 url(/images/leatherbg.jpg?054ca601ae6e25b3cdefc411667195bd) repeat left top scroll;
 }
 
-.home-page .introduction .name {
+body.theme-diana .introduction .name {
   color: #D1CFCE;
   font-size: 7rem;
   margin-top: 10rem;
@@ -8415,52 +8415,52 @@ body.theme-default .delete-btn {
   font-family: "LemonMilk";
 }
 
-.home-page .introduction .role {
+body.theme-diana .introduction .role {
   font-size: 3rem;
   color: #ABABAB;
   text-transform: uppercase;
 }
 
-.home-page .menu {
+body.theme-diana .menu {
   height: 40px;
   background: #dadedf url(/images/blackwood.jpg?5e596fb7fc7fbe4b47562c2e40da71ae) repeat center bottom scroll;
   -webkit-box-shadow: 0 20px 27px rgba(0, 0, 0, 0.38);
           box-shadow: 0 20px 27px rgba(0, 0, 0, 0.38);
 }
 
-.home-page .menu ul {
+body.theme-diana .menu ul {
   display: inline-block;
   list-style: none;
   overflow: hidden;
   padding: 0;
 }
 
-.home-page .menu ul li {
+body.theme-diana .menu ul li {
   height: 40px;
   text-align: center;
   float: left;
   padding: 0 5px;
 }
 
-.home-page .menu ul li a {
+body.theme-diana .menu ul li a {
   display: block;
   line-height: 40px;
   color: #ffffff;
   padding: 0 5px;
 }
 
-.home-page .menu ul li a:hover {
+body.theme-diana .menu ul li a:hover {
   background: #fff;
   color: #000;
   text-decoration: none;
 }
 
-.home-page .about {
+body.theme-diana .about {
   background: #333333 url(/images/patt.jpg?712e350f0c3853e44b98b950c7a277a7) repeat left top scroll;
   padding: 4.5rem 0;
 }
 
-.home-page .about ul {
+body.theme-diana .about ul {
   display: inline-block;
   font-size: 1.8rem;
   list-style-type: none;
@@ -8468,11 +8468,11 @@ body.theme-default .delete-btn {
   overflow: hidden;
 }
 
-.home-page .about ul li {
+body.theme-diana .about ul li {
   position: relative;
 }
 
-.home-page .about ul li:before {
+body.theme-diana .about ul li:before {
   content: "";
   display: block;
   width: 8px;
@@ -8486,23 +8486,23 @@ body.theme-default .delete-btn {
           box-shadow: inset 2px 2px 4px -1px #b0aeae, 1px 3px 9px -2px black;
 }
 
-.home-page .projects {
+body.theme-diana .projects {
   padding: 4.5rem 0;
   background-color: rgba(2, 2, 2, 0.9);
 }
 
-.home-page .projects h2 {
+body.theme-diana .projects h2 {
   color: #DBDEDF;
 }
 
-.home-page .projects ul {
+body.theme-diana .projects ul {
   display: inline-block;
   list-style-type: none;
   padding: 0;
   overflow: hidden;
 }
 
-.home-page .projects ul li {
+body.theme-diana .projects ul li {
   float: left;
   font-size: 1.5rem;
   color: #ffffff;
@@ -8510,12 +8510,12 @@ body.theme-default .delete-btn {
   position: relative;
 }
 
-.home-page .projects ul li a .image img {
+body.theme-diana .projects ul li a .image img {
   width: 210px;
   height: 210px;
 }
 
-.home-page .projects ul li a .detail {
+body.theme-diana .projects ul li a .detail {
   position: absolute;
   display: none;
   top: 0;
@@ -8528,7 +8528,7 @@ body.theme-default .delete-btn {
           hyphens: auto;
 }
 
-.home-page .projects ul li a:hover .detail {
+body.theme-diana .projects ul li a:hover .detail {
   display: inline-block;
   background: rgba(0, 0, 0, 0.8);
   color: #ffffff;
@@ -8536,7 +8536,7 @@ body.theme-default .delete-btn {
   padding-top: 35px;
 }
 
-.home-page .projects p a {
+body.theme-diana .projects p a {
   display: inline-block;
   text-decoration: none;
   color: #ccc;
@@ -8544,11 +8544,11 @@ body.theme-default .delete-btn {
   font-size: 1.2em;
 }
 
-.home-page .projects p a:hover {
+body.theme-diana .projects p a:hover {
   color: #999;
 }
 
-.home-page .contact {
+body.theme-diana .contact {
   position: relative;
   padding: 4.5rem 0;
   background: #333 url(/images/quartzlow.jpg?d6c63c021d84da8f5be18439e2c674d6) no-repeat center bottom scroll;
@@ -8556,7 +8556,7 @@ body.theme-default .delete-btn {
   overflow: hidden;
 }
 
-.home-page .contact:before {
+body.theme-diana .contact:before {
   content: "";
   display: block;
   position: absolute;
@@ -8567,18 +8567,18 @@ body.theme-default .delete-btn {
   background-color: rgba(229, 227, 227, 0.73);
 }
 
-.home-page .contact form {
+body.theme-diana .contact form {
   background: rgba(32, 32, 33, 0.3);
   padding: 20px;
 }
 
-.home-page .contact form .info,
-.home-page .contact form .content {
+body.theme-diana .contact form .info,
+body.theme-diana .contact form .content {
   margin-bottom: 10px;
 }
 
-.home-page .contact form input,
-.home-page .contact form textarea {
+body.theme-diana .contact form input,
+body.theme-diana .contact form textarea {
   border: 1px solid #dadedf;
   background: #dadedf;
   width: 100%;
@@ -8587,13 +8587,13 @@ body.theme-default .delete-btn {
   margin-bottom: 5px;
 }
 
-.home-page .contact form button {
+body.theme-diana .contact form button {
   border: 1px solid #fff;
   background: #000;
   color: #fff;
 }
 
-.home-page .footer {
+body.theme-diana .footer {
   height: 100px;
   line-height: 100px;
   background: #dadedf url(/images/blackwood.jpg?5e596fb7fc7fbe4b47562c2e40da71ae) repeat center bottom scroll;

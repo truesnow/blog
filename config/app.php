@@ -228,4 +228,6 @@ return [
 
     ],
 
+    'theme' => env('THEME', 'diana'),
+
 ];
