@@ -11,7 +11,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('home') }}">Home</a></li>
+                <li class="active"><a href="{{ route('home') }}">主页</a></li>
                 <li><a href="">Blog</a></li>
                 <li><a href="">Bookmark</a></li>
                 <li><a href="">About</a></li>
