@@ -118,6 +118,8 @@ class UsersController extends Controller
 
     public function editAvatar(Request $request, User $user)
     {
+        $this->authorize('update', $user);
+
         return $this->view('users.edit_avatar', compact('user'));
     }
 
@@ -128,6 +130,7 @@ class UsersController extends Controller
         ], [
             'avatar.required' => '头像不能为空',
         ]);
+        $this->authorize('update', $user);
         $data = $request->all();
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
