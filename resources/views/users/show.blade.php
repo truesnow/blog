@@ -4,6 +4,9 @@
 
 @section('content')
 
+<img src="{{ $user->gravatar() }}" alt="{{ $user->name }}">
+<br>
+
 {{ $user->name }}
 <br>
 {{ $user->email }}
