@@ -34,4 +34,12 @@ class MessagesController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy(Message $message)
+    {
+        $this->authorize('destroy', $message);
+        $message->delete();
+
+        return redirect()->back()->with('success', '留言已删除');
+    }
 }
