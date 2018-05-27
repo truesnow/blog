@@ -6,6 +6,8 @@ Route::get('signup', 'UsersController@create')->name('signup');
 Route::resource('users', 'UsersController');
 Route::get('users/{user}/avatar/edit', 'UsersController@editAvatar')->name('users.avatar.edit');
 Route::post('users/{user}/avatar', 'UsersController@updateAvatar')->name('users.avatar.update');
+Route::get('users/{user}/password/edit', 'UsersController@editPassword')->name('users.password.edit');
+Route::patch('users/{user}/password', 'UsersController@eupdatePassword')->name('users.password.update');
 
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');

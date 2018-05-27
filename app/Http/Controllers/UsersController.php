@@ -120,7 +120,7 @@ class UsersController extends Controller
     {
         $this->authorize('update', $user);
 
-        return $this->view('users.edit_avatar', compact('user'));
+        return $this->view('users.edit-avatar', compact('user'));
     }
 
     public function updateAvatar(Request $request, User $user, ImageUploadHandler $uploader)
@@ -141,5 +141,10 @@ class UsersController extends Controller
         $user->update($data);
 
         return redirect()->route('users.show', $user->id)->with('success', '更新头像成功！');
+    }
+
+    public function editPassword(Request $request, User $user)
+    {
+        return $this->view('users.edit-password', compact('user'));
     }
 }

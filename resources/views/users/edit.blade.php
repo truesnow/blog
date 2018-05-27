@@ -4,7 +4,11 @@
 
 @section('content')
 
-<div class="col-md-8 col-md-offset-2">
+<div class="col-md-3">
+    @include('users._profile-menu')
+</div>
+
+<div class="col-md-9">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h5><i class="glyphicon glyphicon-edit"></i>更新个人资料</h5>

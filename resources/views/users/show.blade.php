@@ -14,7 +14,7 @@
                         <img class="thumbnail img-responsive" src="{{ empty($user->avatar) ? $user->gravatar() : $user->avatar }}" width="300px" height="300px">
                     </div>
                     <div class="text-center">
-                        <a href="{{ route('users.avatar.edit', $user->id) }}" class="btn btn-primary btn-block">更换头像</a>
+                        <a href="{{ route('users.edit', Auth::user()->id) }}" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-edit"></i>  编辑个人资料</a>
                     </div>
                     <div class="media-body">
                         <hr>
