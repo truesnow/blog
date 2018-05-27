@@ -38,6 +38,10 @@ class UsersController extends Controller
             'name' => 'required|max:16',
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|confirmed|min:6',
+            'captcha' => 'required|captcha',
+        ], [
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '请输入正确的验证码',
         ]);
 
         $user = User::create([
