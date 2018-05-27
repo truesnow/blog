@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="truesnow">
     <meta name="description" content="Sleep, eat, code. TRUESNOW's personal website.">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - SleepEatCode</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.gif">
     <link rel="stylesheet" href="/css/app.css">
@@ -16,13 +17,15 @@
     <![endif]-->
 </head>
 <body class="theme-default">
-    @include('layouts._nav')
-    <div class="container">
-        @include('shares._messages')
-        @yield('content')
+    <div id="app" class="{{ route_class() }}-page">
+        @include('layouts._nav')
+        <div class="container">
+            @include('shares._messages')
+            @yield('content')
+        </div>
+        @include('layouts._footer')
+        <script src="/js/app.js"></script>
+        @yield('js')
     </div>
-    @include('layouts._footer')
-    <script src="/js/app.js"></script>
-    @yield('js')
 </body>
 </html>

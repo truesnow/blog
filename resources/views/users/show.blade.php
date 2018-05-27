@@ -10,8 +10,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="media">
-                    <div align="center">
-                        <img class="thumbnail img-responsive" src="{{ $user->gravatar() }}" width="300px" height="300px">
+                    <div class="text-center">
+                        <img class="thumbnail img-responsive" src="{{ empty($user->avatar) ? $user->gravatar() : $user->avatar }}" width="300px" height="300px">
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ route('users.avatar.edit', $user->id) }}" class="btn btn-primary btn-block">更换头像</a>
                     </div>
                     <div class="media-body">
                         <hr>

@@ -43,7 +43,7 @@
 
                     <div class="form-group">
                         <label class="hidden"></label>
-                        <img src="{{ captcha_src('flat') }}" alt="" class="thumbnail captcha" onclick="this.src='/captcha/flat' + Math.random()" title="点击图片重新获取验证码">
+                        <img src="{{ captcha_src('flat') }}" alt="" class="thumbnail captcha" onclick="this.src='/captcha/flat?' + Math.random()" title="点击图片重新获取验证码">
                     </div>
 
                     <button type="submit" class="btn btn-primary">注册</button>

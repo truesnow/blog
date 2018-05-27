@@ -7,7 +7,7 @@
 <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h5>更新个人资料</h5>
+            <h5><i class="glyphicon glyphicon-edit"></i>更新个人资料</h5>
         </div>
         <div class="panel-body">
             @include('shares._errors')

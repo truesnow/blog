@@ -7,12 +7,14 @@ use App\Models\User;
 use Auth;
 use Mail;
 use App\Http\Requests\UserRequest;
+use App\Handlers\ImageUploadHandler;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth', [
+            // 无需登录可访问
             'except' => ['show', 'create', 'store', 'index', 'confirmEmail']
         ]);
     }
@@ -112,5 +114,29 @@ class UsersController extends Controller
         session()->flash('success', '恭喜您，激活成功！');
 
         return redirect()->route('users.show', compact('user'));
+    }
+
+    public function editAvatar(Request $request, User $user)
+    {
+        return $this->view('users.edit_avatar', compact('user'));
+    }
+
+    public function updateAvatar(Request $request, User $user, ImageUploadHandler $uploader)
+    {
+        $this->validate($request, [
+            'avatar' => 'required|mimes:jpeg,png,bmp,gif|dimensions:min_width=200,min_height=200',
+        ], [
+            'avatar.required' => '头像不能为空',
+        ]);
+        $data = $request->all();
+        if ($request->avatar) {
+            $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
+            if ($result) {
+                $data['avatar'] = $result['path'];
+            }
+        }
+        $user->update($data);
+
+        return redirect()->route('users.show', $user->id)->with('success', '更新头像成功！');
     }
 }
