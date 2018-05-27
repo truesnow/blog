@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class);
     }
+
+    public function avatar($size = '100')
+    {
+        return empty($this->attributes['avatar']) ? $this->gravatar($size) : $this->attributes['avatar'];
+    }
 }
