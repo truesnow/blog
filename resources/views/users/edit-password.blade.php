@@ -14,6 +14,7 @@
             <h5>修改密码</h5>
         </div>
         <div class="panel-body">
+            @include('shares._errors')
             <form action="{{ route('users.password.update', $user->id) }}" method="POST" accept-charset="UTF-8" class="form-horizontal" role="form">
                 {{ csrf_field() }}
                 {{ method_field('PATCH') }}

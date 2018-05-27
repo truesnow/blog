@@ -145,6 +145,18 @@ class UsersController extends Controller
 
     public function editPassword(Request $request, User $user)
     {
+        $this->authorize('update', $user);
         return $this->view('users.edit-password', compact('user'));
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:6',
+        ]);
+        $this->authorize('update', $user);
+        $user->update(['password' => bcrypt($request->password)]);
+
+        return redirect()->route('users.show', $user->id)->with('success', '更新密码成功！');
     }
 }
