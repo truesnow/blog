@@ -71,9 +71,6 @@ class UsersController extends Controller
         $data = [];
         $data['name'] = $request->name;
         $data['introduction'] = $request->introduction;
-        if ($request->password) {
-            $data['password'] = bcrypt($request->password);
-        }
 
         $user->update($data);
         session()->flash('success', '个人资料更新成功');
