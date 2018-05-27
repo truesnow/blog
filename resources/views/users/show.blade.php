@@ -13,9 +13,11 @@
                     <div class="text-center">
                         <img class="thumbnail img-responsive" src="{{ empty($user->avatar) ? $user->gravatar() : $user->avatar }}" width="300px" height="300px">
                     </div>
-                    <div class="text-center">
-                        <a href="{{ route('users.edit', Auth::user()->id) }}" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-edit"></i>  编辑个人资料</a>
-                    </div>
+                    @if (Auth::check() && Auth::user()->id === $user->id)
+                        <div class="text-center">
+                            <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-edit"></i>  编辑个人资料</a>
+                        </div>
+                    @endif
                     <div class="media-body">
                         <hr>
                         <h4><strong>个人简介</strong></h4>
@@ -27,6 +29,15 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="list-group text-center">
+
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
         <div class="panel panel-default">
