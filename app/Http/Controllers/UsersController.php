@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Auth;
 use Mail;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -61,17 +62,13 @@ class UsersController extends Controller
         return view('users.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request)
+    public function update(User $user, UserRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:16',
-            'password' => 'nullable|confirmed|min:6',
-        ]);
-
         $this->authorize('update', $user);
 
         $data = [];
         $data['name'] = $request->name;
+        $data['introduction'] = $request->introduction;
         if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }

@@ -17,7 +17,7 @@
                 {{ method_field('PATCH') }}
 
                 <div class="form-group">
-                    <label for="name">名称：</label>
+                    <label for="name">用户名：</label>
                     <input type="text" name="name" value="{{ $user->name }}" class="form-control">
                 </div>
                 <div class="form-group">
@@ -25,13 +25,17 @@
                     <input type="email" name="email" value="{{ $user->email }}"  class="form-control" disabled>
                 </div>
                 <div class="form-group">
+                    <label for="introduction">个人简介：</label>
+                    <textarea name="introduction" id="introduction" rows="3" class="form-control">{{ $user->introduction }}</textarea>
+                </div>
+                <!-- <div class="form-group">
                     <label for="password">密码：</label>
                     <input type="password" name="password"  class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="password_confirmation">确认密码：</label>
                     <input type="password" name="password_confirmation" class="form-control">
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">更新</button>
             </form>
         </div>
