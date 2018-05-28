@@ -8,6 +8,7 @@ Route::get('users/{user}/avatar/edit', 'UsersController@editAvatar')->name('user
 Route::post('users/{user}/avatar', 'UsersController@updateAvatar')->name('users.avatar.update');
 Route::get('users/{user}/password/edit', 'UsersController@editPassword')->name('users.password.edit');
 Route::patch('users/{user}/password', 'UsersController@updatePassword')->name('users.password.update');
+Route::get('users/{user}/messages', 'UsersController@messages')->name('users.messages');
 
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');

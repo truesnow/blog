@@ -156,4 +156,11 @@ class UsersController extends Controller
 
         return redirect()->route('users.show', $user->id)->with('success', '更新密码成功！');
     }
+
+    public function messages(User $user)
+    {
+        $messages = $user->messages()->paginate(10);
+
+        return $this->view('users.messages', compact('user', 'messages'));
+    }
 }
