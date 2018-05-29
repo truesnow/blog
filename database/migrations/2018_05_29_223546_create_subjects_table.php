@@ -18,7 +18,7 @@ class CreateSubjectsTable extends Migration
             $table->string('name')->comment('专题名称');
             $table->string('description')->comment('专题描述');
             $table->integer('article_count')->comment('专题下文章数量');
-            $table->integer('pid')->nullable(false)->default(0)->comment('父级专题ID，为0则为顶级');
+            $table->integer('parent_id')->nullable(false)->default(0)->comment('父级专题ID，为0则为顶级');
             $table->timestamps();
         });
     }
