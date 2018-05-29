@@ -159,7 +159,7 @@ class UsersController extends Controller
 
     public function messages(User $user)
     {
-        $messages = $user->messages()->paginate(10);
+        $messages = $user->messages()->orderBy('created_at', 'desc')->paginate(10);
 
         return $this->view('users.messages', compact('user', 'messages'));
     }

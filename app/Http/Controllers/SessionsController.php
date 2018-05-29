@@ -7,7 +7,7 @@ use Auth;
 
 class SessionsController extends Controller
 {
-    public function guest()
+    public function __construct()
     {
         $this->middleware('guest', [
             'only' => ['create']
