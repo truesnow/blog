@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return empty($this->attributes['avatar']) ? $this->gravatar($size) : $this->attributes['avatar'];
     }
+
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }
