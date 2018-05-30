@@ -166,7 +166,7 @@ class UsersController extends Controller
 
     public function articles(User $user)
     {
-        $articles = $user->articles()->orderBy('created_at', 'desc')->paginate(10);
+        $articles = $user->articles()->with('subject')->orderBy('created_at', 'desc')->paginate(10);
 
         return $this->view('users.articles', compact('user', 'articles'));
     }
