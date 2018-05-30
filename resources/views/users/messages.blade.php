@@ -1,6 +1,6 @@
 @extends('users._show-layout')
 
-@section('title', '个人中心')
+@section('title', '留言|个人中心')
 
 @section('user-data')
 
@@ -18,4 +18,3 @@
 @endif
 
 @stop
-

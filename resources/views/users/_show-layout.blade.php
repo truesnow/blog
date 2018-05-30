@@ -31,9 +31,9 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="list-group text-center">
-                    <a href="{{ route('users.messages', $user->id) }}" class="list-group-item">
-                        <?php echo (Auth::check() && Auth::user()->id == $user->id) ? '我的' : 'Ta 的' ?>留言
-                    </a>
+                    <?php $user_desc = (Auth::check() && Auth::user()->id == $user->id) ? '我的' : 'Ta的'; ?>
+                    <a href="{{ route('users.messages', $user->id) }}" class="list-group-item">{{ $user_desc }}留言</a>
+                    <a href="{{ route('users.articles', $user->id) }}" class="list-group-item">{{ $user_desc }}文章</a>
                 </div>
             </div>
         </div>

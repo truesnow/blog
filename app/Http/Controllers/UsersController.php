@@ -163,4 +163,11 @@ class UsersController extends Controller
 
         return $this->view('users.messages', compact('user', 'messages'));
     }
+
+    public function articles(User $user)
+    {
+        $articles = $user->articles()->orderBy('created_at', 'desc')->paginate(10);
+
+        return $this->view('users.articles', compact('user', 'articles'));
+    }
 }
