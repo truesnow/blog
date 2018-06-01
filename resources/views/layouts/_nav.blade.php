@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ route('home') }}">主页</a></li>
                 <li><a href="{{ route('messages.index') }}">留言</a></li>
-                <li><a href="">Bookmark</a></li>
+                <li><a href="{{ route('subjects.index') }}">专题</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
             </ul>

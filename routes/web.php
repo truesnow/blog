@@ -25,3 +25,4 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::resource('messages', 'MessagesController', ['only' => ['index', 'store', 'show', 'destroy']]);
 
 Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('subjects', 'SubjectsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

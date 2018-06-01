@@ -8369,6 +8369,15 @@ body.theme-default .delete-btn {
   float: right;
 }
 
+body.theme-default .subject {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid gray;
+  -webkit-box-shadow: 5px 5px 5px #eee;
+          box-shadow: 5px 5px 5px #eee;
+  height: 200px;
+}
+
 .fixed {
   position: fixed;
   width: 100%;
