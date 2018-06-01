@@ -10,6 +10,6 @@ class Subject extends Model
 
     public function articles()
     {
-        return $this->hasMany(Article::class);
+        return $this->hasMany(Article::class)->orderBy('created_at', 'desc');
     }
 }
