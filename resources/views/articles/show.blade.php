@@ -20,18 +20,20 @@
         <div class="article-content simditor-body">
             {!! $article->content !!}
         </div>
-        @if (Auth::check() && (Auth::user()->is_admin || Auth::id() == $article->user_id))
 
-        <div>
+        <div class="operate">
+            @can('update', $article)
             <a href="{{ route('articles.edit', $article->id) }}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span>编辑</a>
-            <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display:inline;">
+            @endcan
+            @can('destroy', $article)
+            <form action="{{ route('articles.destroy', $article->id) }}" method="POST" style="display: inline;">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span>删除</button>
             </form>
+            @endcan
         </div>
 
-        @endif
     </div>
 </div>
 
