@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Models\Article;
 use App\Handlers\SlugTranslateHandler;
 use App\Jobs\TranslateSlug;
+use App\Models\Subject;
 // creating, created, updating, updated, saving,
 // saved,  deleting, deleted, restoring, restored
 
@@ -24,6 +25,8 @@ class ArticleObserver
     {
         $article->order = $article->id;
         $article->save();
+        // 更新专题下文章数量
+        Subject::where('id', $article->subject_id)->increment('article_count');
     }
 
     public function saving(Article $article)
@@ -45,5 +48,11 @@ class ArticleObserver
             dispatch(new TranslateSlug($article));
             // $article->slug = app(SlugTranslateHandler::class)->translate($article->title);
         }
+    }
+
+    public function deleted(Article $article)
+    {
+        // 更新专题下文章数量
+        Subject::where('id', $article->subject_id)->decrement('article_count');
     }
 }
