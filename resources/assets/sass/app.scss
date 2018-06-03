@@ -30,6 +30,13 @@ body.theme-default {
         box-shadow: 5px 5px 5px #eee;
         height: 200px;
     }
+    ul.users {
+        list-style-type: none;
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    }
 }
 
 .fixed {
