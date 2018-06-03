@@ -26,3 +26,5 @@ Route::resource('messages', 'MessagesController', ['only' => ['index', 'store', 
 
 Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('subjects', 'SubjectsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
