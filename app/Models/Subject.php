@@ -12,4 +12,19 @@ class Subject extends Model
     {
         return $this->hasMany(Article::class)->orderBy('created_at', 'desc');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Subject::class, 'id')->where('id', $this->parent_id);
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Subject::class, 'parent_id');
+    }
+
+    public static function allSorted()
+    {
+        return Subject::where('parent_id', 0)->with('children')->get();
+    }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticlesTable extends Migration 
+class CreateArticlesTable extends Migration
 {
 	public function up()
 	{
@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
             $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->integer('order')->unsigned()->default(0);
-            $table->text('excerpt');
+            $table->string('excerpt')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

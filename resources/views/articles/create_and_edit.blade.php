@@ -1,23 +1,25 @@
 @extends('layouts.app')
 
+@section('title', '编辑文章')
+
 @section('content')
 
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            
+
             <div class="panel-heading">
                 <h1>
-                    <i class="glyphicon glyphicon-edit"></i> Article /
+                    <i class="glyphicon glyphicon-edit"></i> 文章 /
                     @if($article->id)
-                        Edit #{{$article->id}}
+                        编辑 #{{$article->id}}
                     @else
-                        Create
+                        创建
                     @endif
                 </h1>
             </div>
 
-            @include('common.error')
+            @include('shares._errors')
 
             <div class="panel-body">
                 @if($article->id)
@@ -29,47 +31,39 @@
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    
+
                 <div class="form-group">
-                	<label for="title-field">Title</label>
+                	<label for="title-field">标题</label>
                 	<input class="form-control" type="text" name="title" id="title-field" value="{{ old('title', $article->title ) }}" />
-                </div> 
+                </div>
                 <div class="form-group">
-                	<label for="content-field">Content</label>
-                	<textarea name="content" id="content-field" class="form-control" rows="3">{{ old('content', $article->content ) }}</textarea>
-                </div> 
+                    <label for="subject_id-field">收录到专题</label>
+                    <select name="subject_id" id="subject_id-field" class="form-control">
+                        @foreach ($subjects as $subject)
+                        <optgroup label="{{ $subject->name }}">
+                            @foreach ($subject->children as $child)
+                            <option value="{{ $child->id }}">{{ $child->name }}</option>
+                            @endforeach
+                        </optgroup>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="form-group">
-                    <label for="user_id-field">User_id</label>
-                    <input class="form-control" type="text" name="user_id" id="user_id-field" value="{{ old('user_id', $article->user_id ) }}" />
-                </div> 
+                    <label for="content-field">内容</label>
+                    <textarea name="content" id="content-field" class="form-control" rows="3">{{ old('content', $article->content ) }}</textarea>
+                </div>
                 <div class="form-group">
-                    <label for="subject_id-field">Subject_id</label>
-                    <input class="form-control" type="text" name="subject_id" id="subject_id-field" value="{{ old('subject_id', $article->subject_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="reply_count-field">Reply_count</label>
-                    <input class="form-control" type="text" name="reply_count" id="reply_count-field" value="{{ old('reply_count', $article->reply_count ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="view_count-field">View_count</label>
-                    <input class="form-control" type="text" name="view_count" id="view_count-field" value="{{ old('view_count', $article->view_count ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="order-field">Order</label>
-                    <input class="form-control" type="text" name="order" id="order-field" value="{{ old('order', $article->order ) }}" />
-                </div> 
-                <div class="form-group">
-                	<label for="excerpt-field">Excerpt</label>
+                	<label for="excerpt-field">摘要</label>
                 	<textarea name="excerpt" id="excerpt-field" class="form-control" rows="3">{{ old('excerpt', $article->excerpt ) }}</textarea>
-                </div> 
+                </div>
                 <div class="form-group">
-                	<label for="slug-field">Slug</label>
+                	<label for="slug-field">SEO Slug</label>
                 	<input class="form-control" type="text" name="slug" id="slug-field" value="{{ old('slug', $article->slug ) }}" />
                 </div>
 
                     <div class="well well-sm">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a class="btn btn-link pull-right" href="{{ route('articles.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <a class="btn btn-link pull-right" href="{{ route('articles.index') }}"><i class="glyphicon glyphicon-backward"></i>  返回文章页</a>
                     </div>
                 </form>
             </div>

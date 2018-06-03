@@ -10,17 +10,13 @@ class ArticleRequest extends Request
         {
             // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
-            // UPDATE
             case 'PUT':
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'title' => 'required|string|max:24',
+                    'content' => 'required',
+                    'subject_id' => 'required|numeric'
                 ];
             }
             case 'GET':
