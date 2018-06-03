@@ -30,16 +30,18 @@ class ArticlesController extends Controller
 
     public function create(Article $article)
     {
+        $this->authorize('create');
         $subjects = Subject::allSorted();
         return view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
     public function store(ArticleRequest $request, Article $article)
     {
+        $this->authorize('create');
         $article->fill($request->all());
         $article->user_id = Auth::id();
         $article->save();
-        return redirect()->route('articles.show', $article->id)->with('message', '更新文章成功');
+        return redirect()->route('articles.show', $article->id)->with('success', '更新文章成功');
     }
 
     public function edit(Article $article)
@@ -54,7 +56,7 @@ class ArticlesController extends Controller
         $this->authorize('update', $article);
         $article->update($request->all());
 
-        return redirect()->route('articles.show', $article->id)->with('message', 'Updated successfully.');
+        return redirect()->route('articles.show', $article->id)->with('success', '更新成功');
     }
 
     public function destroy(Article $article)
@@ -62,7 +64,7 @@ class ArticlesController extends Controller
         $this->authorize('destroy', $article);
         $article->delete();
 
-        return redirect()->route('articles.index')->with('message', 'Deleted successfully.');
+        return redirect()->route('articles.index')->with('success', '删除成功');
     }
 
     public function uploadImage(Request $request, ImageUploadHandler $uploader)

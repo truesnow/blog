@@ -46,7 +46,7 @@
                         @foreach ($subjects as $subject)
                         <optgroup label="{{ $subject->name }}">
                             @foreach ($subject->children as $child)
-                            <option value="{{ $child->id }}">{{ $child->name }}</option>
+                            <option value="{{ $child->id }}" {{ $child->id == $article->subject_id ? 'selected' : '' }}>{{ $child->name }}</option>
                             @endforeach
                         </optgroup>
                         @endforeach

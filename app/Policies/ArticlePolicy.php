@@ -9,10 +9,15 @@ class ArticlePolicy extends Policy
 {
     public function update(User $user, Article $article)
     {
-        return $user->is_admin;
+        return $user->id == $article->user_id;
     }
 
     public function destroy(User $user, Article $article)
+    {
+        return $user->is_admin || $user->id == $article->user_id;
+    }
+
+    public function create(User $user)
     {
         return $user->is_admin;
     }
