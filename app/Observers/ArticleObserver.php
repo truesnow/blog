@@ -27,6 +27,7 @@ class ArticleObserver
 
     public function saving(Article $article)
     {
+        $article->content = clean($article->content, 'article_content');
         if (empty($article->excerpt)) {
             $article->excerpt = make_excerpt($article->content);
         }

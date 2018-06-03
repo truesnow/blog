@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="truesnow">
-    <meta name="description" content="Sleep, eat, code. TRUESNOW's personal website.">
+    <meta name="description" content="@yield('description', 'Sleep, eat, code. TRUESNOW\'s personal website.')">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - SleepEatCode</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.gif">
