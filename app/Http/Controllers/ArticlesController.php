@@ -34,28 +34,28 @@ class ArticlesController extends Controller
 
     public function create(Article $article)
     {
-        $this->authorize('create');
+        $this->authorize('create', $article);
         $subjects = Subject::allSorted();
         return view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
     public function store(ArticleRequest $request, Article $article)
     {
-        $this->authorize('create');
+        $this->authorize('create', $article);
         $article->fill($request->all());
         $article->user_id = Auth::id();
         $article->save();
         return redirect()->to($article->link())->with('success', '更新文章成功');
     }
 
-    public function edit(Article $article)
+    public function edit(Article $article, User $user)
     {
         $this->authorize('update', $article);
         $subjects = Subject::allSorted();
         return view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
-    public function update(ArticleRequest $request, Article $article)
+    public function update(ArticleRequest $request, Article $article, User $user)
     {
         $this->authorize('update', $article);
         $article->update($request->all());
