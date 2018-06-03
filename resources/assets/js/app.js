@@ -37,5 +37,7 @@ $.extend({
 });
 
 $(document).ready(function() {
-    $.scrollFixed($(".menu"));
+    if ($(".menu").length) {
+        $.scrollFixed($(".menu"));
+    }
 });
