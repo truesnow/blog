@@ -32,8 +32,8 @@
             <div class="panel-body">
                 <div class="list-group text-center">
                     <?php $user_desc = (Auth::check() && Auth::user()->id == $user->id) ? '我的' : 'Ta的'; ?>
-                    <a href="{{ route('users.messages', $user->id) }}" class="list-group-item">{{ $user_desc }}留言</a>
-                    <a href="{{ route('users.articles', $user->id) }}" class="list-group-item">{{ $user_desc }}文章</a>
+                    <a href="{{ route('users.messages', $user->id) }}" class="list-group-item {{ active_class(if_route('users.messages')) }}">{{ $user_desc }}留言</a>
+                    <a href="{{ route('users.articles', $user->id) }}" class="list-group-item {{ active_class(if_route('users.articles')) }}">{{ $user_desc }}文章</a>
                 </div>
             </div>
         </div>

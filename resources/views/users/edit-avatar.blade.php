@@ -11,7 +11,7 @@
 <div class="col-md-9">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h5>更换头像</h5>
+      <h5><i class="glyphicon glyphicon-picture"></i>更换头像</h5>
     </div>
     <div class="panel-body">
       @include('shares._errors')

@@ -8372,7 +8372,7 @@ body.theme-default .delete-btn {
 body.theme-default .subject {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 1px solid gray;
+  border: 1px solid #eee;
   -webkit-box-shadow: 5px 5px 5px #eee;
           box-shadow: 5px 5px 5px #eee;
   height: 200px;
@@ -8385,6 +8385,11 @@ body.theme-default ul.users {
 body.theme-default ul.users li {
   padding: 10px;
   border-bottom: 1px solid #eee;
+}
+
+body.theme-default .articles .article {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
 }
 
 .fixed {
