@@ -14,7 +14,7 @@ class ArticleRequest extends Request
             case 'PATCH':
             {
                 return [
-                    'title' => 'required|string|max:24',
+                    'title' => 'required|string|max:36',
                     'content' => 'required',
                     'subject_id' => 'required|numeric'
                 ];

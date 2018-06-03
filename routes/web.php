@@ -24,7 +24,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 Route::resource('messages', 'MessagesController', ['only' => ['index', 'store', 'show', 'destroy']]);
 
-Route::resource('articles', 'ArticlesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('articles', 'ArticlesController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::get('articles/{article}/{slug?}', 'ArticlesController@show')->name('articles.show');
 Route::resource('subjects', 'SubjectsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
