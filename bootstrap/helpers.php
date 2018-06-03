@@ -8,3 +8,16 @@ function route_class()
 {
     return str_replace('.', '-', Route::currentRouteName());
 }
+
+/**
+ * 获取文章内容摘要：去除 HTML 标签和 PHP 标签，将换行替换为空格，截取指定长度
+ * @param  [type]  $value  [description]
+ * @param  integer $length [description]
+ * @return [type]          [description]
+ */
+function make_excerpt($value, $length = 200)
+{
+    $excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($value)));
+
+    return str_limit($excerpt, $length);
+}
