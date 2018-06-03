@@ -48,14 +48,14 @@ class ArticlesController extends Controller
         return redirect()->to($article->link())->with('success', '更新文章成功');
     }
 
-    public function edit(Article $article, User $user)
+    public function edit(Article $article)
     {
         $this->authorize('update', $article);
         $subjects = Subject::allSorted();
         return view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
-    public function update(ArticleRequest $request, Article $article, User $user)
+    public function update(ArticleRequest $request, Article $article)
     {
         $this->authorize('update', $article);
         $article->update($request->all());
