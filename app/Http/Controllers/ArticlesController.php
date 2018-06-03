@@ -14,9 +14,9 @@ class ArticlesController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request, Article $article)
 	{
-		$articles = Article::paginate();
+		$articles = $article->withOrder($request->order)->paginate(20);
 		return view('articles.index', compact('articles'));
 	}
 

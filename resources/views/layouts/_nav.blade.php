@@ -12,6 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="{{ active_class(if_route('home')) }}"><a href="{{ route('home') }}">主页</a></li>
+                <li class="{{ active_class(if_uri_pattern('articles*')) }}"><a href="{{ route('articles.index') }}">博客</a></li>
                 <li class="{{ active_class(if_uri_pattern('subjects*')) }}"><a href="{{ route('subjects.index') }}">专题</a></li>
                 <li class="{{ active_class(if_route('messages.index')) }}"><a href="{{ route('messages.index') }}">留言</a></li>
                 <li><a href="">About</a></li>

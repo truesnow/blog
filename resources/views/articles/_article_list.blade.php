@@ -1,8 +1,4 @@
-<div class="row">
-    <h2>{{ $subject->name }}</h2>
-    <p>{{ $subject->description }}</p>
-    <p>当前共有 {{ $subject->article_count }} 篇文章</p>
-</div>
+@if (count($articles))
 
 @foreach ($articles as $article)
 <div class="row">
@@ -13,4 +9,7 @@
     <p>{{ $article->excerpt }}</p>
 </div>
 @endforeach
-{!! $articles->render() !!}
+
+@else
+   <div class="empty-block">暂无文章 ~_~ </div>
+@endif
