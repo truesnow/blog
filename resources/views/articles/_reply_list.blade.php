@@ -18,9 +18,11 @@
                     {{-- 回复删除按钮 --}}
                     @can('destroy', $reply)
                         <span class="meta pull-right">
-                            <a title="删除回复">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                            </a>
+                            <form action="{{ route('replies.destroy', $reply->id) }}" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button type="submit" class="btn"><span class="glyphicon glyphicon-trash text-info" aria-hidden="true"></span></button>
+                            </form>
                         </span>
                     @endcan
                 </div>
