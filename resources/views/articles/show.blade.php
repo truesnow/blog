@@ -16,6 +16,7 @@
         <p class="text-center">
             {{ $article->updated_at->diffForHumans() }}
             收录于 <a href="{{ route('subjects.show', $article->subject_id) }}">{{ $article->subject->name }}</a>
+            <span><i class="glyphicon glyphicon-comment"></i>{{ $article->reply_count }}</span>
         </p>
         <div class="article-content simditor-body">
             {!! $article->content !!}

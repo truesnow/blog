@@ -16,14 +16,19 @@
                     <span class="meta" title="{{ $reply->created_at }}">{{ $reply->created_at->diffForHumans() }}</span>
 
                     {{-- 回复删除按钮 --}}
-                    <span class="meta pull-right">
-                        <a title="删除回复">
-                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </a>
-                    </span>
+                    @can('destroy', $reply)
+                        <span class="meta pull-right">
+                            <a title="删除回复">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            </a>
+                        </span>
+                    @endcan
                 </div>
                 <div class="reply-content">
                     {!! $reply->content !!}
+                </div>
+                <div class="reply-like pull-right">
+                    <!-- <i class="glyphicon glyphicon-thumbs-up"></i>{{ $reply->like }} -->
                 </div>
             </div>
         </div>
