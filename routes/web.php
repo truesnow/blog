@@ -10,6 +10,7 @@ Route::get('users/{user}/password/edit', 'UsersController@editPassword')->name('
 Route::patch('users/{user}/password', 'UsersController@updatePassword')->name('users.password.update');
 Route::get('users/{user}/messages', 'UsersController@messages')->name('users.messages');
 Route::get('users/{user}/articles', 'UsersController@articles')->name('users.articles');
+Route::get('users/{user}/replies', 'UsersController@replies')->name('users.replies');
 
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
@@ -29,3 +30,4 @@ Route::get('articles/{article}/{slug?}', 'ArticlesController@show')->name('artic
 Route::resource('subjects', 'SubjectsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
+Route::resource('replies', 'RepliesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

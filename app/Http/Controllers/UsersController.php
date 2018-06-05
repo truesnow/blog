@@ -170,4 +170,11 @@ class UsersController extends Controller
 
         return $this->view('users.articles', compact('user', 'articles'));
     }
+
+    public function replies(User $user)
+    {
+        $replies = $user->replies()->with('article')->recent()->paginate(20);
+
+        return $this->view('users.replies', compact('user', 'replies'));
+    }
 }

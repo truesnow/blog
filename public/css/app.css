@@ -8826,6 +8826,7 @@ html {
 
 body.theme-default {
   padding-top: 60px;
+  /* User profile page */
 }
 
 body.theme-default .delete-btn {
@@ -8855,6 +8856,29 @@ body.theme-default ul.users li {
 body.theme-default .articles .article {
   border-bottom: 1px solid #eee;
   padding: 10px;
+}
+
+body.theme-default .topic-reply hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+body.theme-default .topic-reply a {
+  color: inherit;
+}
+
+body.theme-default .topic-reply .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
+body.theme-default .users-replies-page .meta {
+  font-size: .9em;
+  color: #b3b3b3;
+}
+
+body.theme-default .users-replies-page .reply-content {
+  margin: 6px 0;
 }
 
 .fixed {

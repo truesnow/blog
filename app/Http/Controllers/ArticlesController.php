@@ -19,7 +19,7 @@ class ArticlesController extends Controller
 
     public function index(Request $request, Article $article)
     {
-        $articles = $article->withOrder($request->order)->paginate(20);
+        $articles = $article->with('user', 'article')->withOrder($request->order)->paginate(20);
         return view('articles.index', compact('articles'));
     }
 

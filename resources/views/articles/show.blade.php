@@ -34,6 +34,13 @@
             @endcan
         </div>
 
+        <div class="panel panel-default article-reply">
+            <div class="panel-body">
+                @include('articles._reply_box', compact('article'))
+                @include('articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
+            </div>
+        </div>
+
     </div>
 </div>
 
