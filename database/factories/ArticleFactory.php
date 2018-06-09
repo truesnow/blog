@@ -13,7 +13,7 @@ $factory->define(App\Models\Article::class, function (Faker $faker) {
         'reply_count' => 0,
         'view_count' => 0,
         'order' => 100,
-        'excerpt' => $faker->paragraph(),
+        'excerpt' => $faker->sentence(),
         'slug' => $faker->word(),
         'created_at' => $created_at,
         'updated_at' => $updated_at,

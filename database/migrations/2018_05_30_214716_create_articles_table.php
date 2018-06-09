@@ -16,7 +16,7 @@ class CreateArticlesTable extends Migration
             $table->integer('reply_count')->unsigned()->default(0);
             $table->integer('view_count')->unsigned()->default(0);
             $table->integer('order')->unsigned()->default(0);
-            $table->string('excerpt')->nullable();
+            $table->text('excerpt')->nullable();
             $table->string('slug')->nullable();
             $table->timestamps();
         });

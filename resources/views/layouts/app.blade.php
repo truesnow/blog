@@ -24,7 +24,7 @@
             @yield('content')
         </div>
         @include('layouts._footer')
-        @if (config('app.debug'))
+        @if (config('app.debug') && Auth::check())
             @include('sudosu::user-selector')
         @endif
         <script src="/js/app.js"></script>
