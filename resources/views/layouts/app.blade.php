@@ -24,6 +24,9 @@
             @yield('content')
         </div>
         @include('layouts._footer')
+        @if (config('app.debug'))
+            @include('sudosu::user-selector')
+        @endif
         <script src="/js/app.js"></script>
         @yield('js')
     </div>
