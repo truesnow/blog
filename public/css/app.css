@@ -8827,6 +8827,7 @@ html {
 body.theme-default {
   padding-top: 60px;
   /* User profile page */
+  /* Notifications badge */
 }
 
 body.theme-default .delete-btn {
@@ -8879,6 +8880,18 @@ body.theme-default .users-replies-page .meta {
 
 body.theme-default .users-replies-page .reply-content {
   margin: 6px 0;
+}
+
+body.theme-default .notifications-badge {
+  margin-top: -1;
+}
+
+body.theme-default .notifications-badge .badge-fade {
+  background-color: #EBE8E8;
+}
+
+body.theme-default .notifications-badge .badge-hint {
+  background-color: #d15b47 !important;
 }
 
 .fixed {
