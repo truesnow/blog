@@ -8859,6 +8859,10 @@ body.theme-default .articles .article {
   padding: 10px;
 }
 
+body.theme-default .articles .article .article-info span {
+  margin-right: 10px;
+}
+
 body.theme-default .topic-reply hr {
   margin-top: 16px;
   margin-bottom: 16px;

@@ -26,6 +26,6 @@ class ReplyObserver
 
     public function deleted(Reply $reply)
     {
-        Article::find($reply->article_id)->decrement('reply_count');
+        Article::find($reply->article_id)->decrement('reply_count', 1);
     }
 }

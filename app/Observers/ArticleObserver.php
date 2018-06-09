@@ -54,5 +54,7 @@ class ArticleObserver
     {
         // 更新专题下文章数量
         Subject::where('id', $article->subject_id)->decrement('article_count');
+        // 同时删除文章下回复
+        \DB::table('replies')->where('article_id', $article->id)->delete();
     }
 }

@@ -55,6 +55,9 @@ body.theme-default {
     .articles .article {
         border-bottom: 1px solid #eee;
         padding: 10px;
+        .article-info span {
+            margin-right: 10px;
+        }
     }
     .topic-reply {
         hr {
