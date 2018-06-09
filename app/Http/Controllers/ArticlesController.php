@@ -28,6 +28,8 @@ class ArticlesController extends Controller
         if (!empty($article->slug) && $article->slug != $request->slug) {
             return redirect($article->link(), 301);
         }
+        // 阅读数+1
+        $article->increment('view_count', 1);
 
         return view('articles.show', compact('article'));
     }

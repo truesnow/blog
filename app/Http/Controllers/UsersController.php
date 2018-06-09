@@ -159,14 +159,14 @@ class UsersController extends Controller
 
     public function messages(User $user)
     {
-        $messages = $user->messages()->orderBy('created_at', 'desc')->paginate(10);
+        $messages = $user->messages()->with('user')->orderBy('created_at', 'desc')->paginate(10);
 
         return $this->view('users.messages', compact('user', 'messages'));
     }
 
     public function articles(User $user)
     {
-        $articles = $user->articles()->with('subject')->orderBy('created_at', 'desc')->paginate(10);
+        $articles = $user->articles()->with('subject', 'user')->orderBy('created_at', 'desc')->paginate(10);
 
         return $this->view('users.articles', compact('user', 'articles'));
     }

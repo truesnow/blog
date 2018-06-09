@@ -25,7 +25,7 @@ class SubjectsController extends Controller
             return $this->view('subjects.show', compact('subject', 'child_subjects'));
         } else {
             // 二级专题
-            $articles = $subject->articles()->paginate(10);
+            $articles = $subject->articles()->with('user', 'subject')->paginate(10);
 
             return $this->view('subjects.show', compact('subject', 'articles'));
         }
