@@ -14,7 +14,7 @@
     <div class="col-md-10">
         <h2 class="text-center">{{ $article->title }}</h2>
         <p class="text-center">
-            {{ $article->updated_at->diffForHumans() }}
+            {{ $article->created_at->diffForHumans() }}
             收录于 <a href="{{ route('subjects.show', $article->subject_id) }}">{{ $article->subject->name }}</a>
             <span><i class="glyphicon glyphicon-comment"></i>{{ $article->reply_count }}</span>
         </p>
