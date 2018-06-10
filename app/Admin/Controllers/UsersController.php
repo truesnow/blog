@@ -93,6 +93,10 @@ class UsersController extends Controller
 
             $grid->disableCreateButton();
             $grid->disableExport();
+
+            $grid->actions(function ($actions) {
+                $actions->disableEdit();
+            });
         });
     }
 

@@ -26,6 +26,9 @@ class MessagesController extends Controller
 
             $content->header('留言管理');
             $content->description('');
+            $content->breadcrumb(
+                ['text' => '留言管理']
+            );
 
             $content->body($this->grid());
         });
@@ -76,9 +79,14 @@ class MessagesController extends Controller
             $grid->id('ID')->sortable();
             $grid->user()->name('留言用户名');
             $grid->content('留言内容');
-
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
+
+            $grid->disableCreateButton();
+
+            $grid->actions(function ($actions) {
+                $actions->disableEdit();
+            });
         });
     }
 

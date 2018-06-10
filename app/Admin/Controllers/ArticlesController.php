@@ -26,7 +26,10 @@ class ArticlesController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('文章管理');
-            $content->description('description');
+            $content->description('');
+            $content->breadcrumb(
+                ['text' => '文章管理']
+            );
 
             $content->body($this->grid());
         });
@@ -90,6 +93,12 @@ class ArticlesController extends Controller
             $grid->view_count('阅读数');
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
+
+            $grid->disableCreateButton();
+
+            $grid->actions(function ($actions) {
+                $actions->disableEdit();
+            });
         });
     }
 

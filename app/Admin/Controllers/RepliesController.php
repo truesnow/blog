@@ -26,6 +26,9 @@ class RepliesController extends Controller
 
             $content->header('文章评论管理');
             $content->description('');
+            $content->breadcrumb(
+                ['text' => '文章评论管理']
+            );
 
             $content->body($this->grid());
         });
@@ -81,6 +84,12 @@ class RepliesController extends Controller
 
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
+
+            $grid->disableCreateButton();
+
+            $grid->actions(function ($actions) {
+                $actions->disableEdit();
+            });
         });
     }
 
