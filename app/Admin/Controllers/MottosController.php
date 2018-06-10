@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Message;
+use App\Models\Motto;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class MessagesController extends Controller
+class MottosController extends Controller
 {
     use ModelForm;
 
@@ -24,7 +24,7 @@ class MessagesController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('留言管理');
+            $content->header('格言管理');
             $content->description('');
 
             $content->body($this->grid());
@@ -71,11 +71,15 @@ class MessagesController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Message::class, function (Grid $grid) {
+        return Admin::grid(Motto::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->user()->name('留言用户名');
-            $grid->content('留言内容');
+            $grid->author('作者')->display(function ($author) {
+                $portrait_link = "<img src='{$this->portrait}' title='{$author}' class='img-circle' width=50 height=50 />";
+                return $portrait_link . $author;
+            });
+            $grid->source('来源');
+            $grid->content('格言内容');
 
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
@@ -89,7 +93,7 @@ class MessagesController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Message::class, function (Form $form) {
+        return Admin::form(Motto::class, function (Form $form) {
 
             $form->display('id', 'ID');
 

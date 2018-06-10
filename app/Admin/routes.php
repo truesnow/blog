@@ -16,5 +16,6 @@ Route::group([
     $router->resource('subjects', SubjectsController::class);
     $router->resource('replies', RepliesController::class);
     $router->resource('messages', MessagesController::class);
+    $router->resource('mottos', MottosController::class);
 
 });

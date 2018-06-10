@@ -85,8 +85,8 @@ class SubjectsController extends Controller
                     return '';
                 }
             });
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at('创建时间');
+            $grid->updated_at('更新时间');
         });
     }
 
