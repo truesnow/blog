@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MessagesTableSeeder::class);
         $this->call(SubjectsTableSeeder::class);
         $this->call(ArticlesTableSeeder::class);
-		$this->call(RepliesTableSeeder::class);
+        $this->call(RepliesTableSeeder::class);
+		$this->call(MottosTableSeeder::class);
 
         Model::reguard();
     }
