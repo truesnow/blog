@@ -41,6 +41,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             @if (Auth::user()->is_admin)
+                            <li><a href="/admin">控制台</a></li>
                             <li><a href="/horizon">Horizon</a></li>
                             @endif
                             <li><a href="{{ route('users.show', Auth::user()->id) }}">个人中心</a></li>

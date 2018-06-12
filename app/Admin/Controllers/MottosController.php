@@ -57,8 +57,8 @@ class MottosController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('添加格言');
+            $content->description('');
 
             $content->body($this->form());
         });
@@ -74,10 +74,8 @@ class MottosController extends Controller
         return Admin::grid(Motto::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->author('作者')->display(function ($author) {
-                $portrait_link = "<img src='{$this->portrait}' title='{$author}' class='img-circle' width=50 height=50 />";
-                return $portrait_link . $author;
-            });
+            $grid->portrait()->image();
+            $grid->author('作者');
             $grid->source('来源');
             $grid->content('格言内容');
 
@@ -97,6 +95,10 @@ class MottosController extends Controller
 
             $form->display('id', 'ID');
 
+            $form->textarea('content', '格言内容');
+            $form->text('author', '作者');
+            $form->text('source', '来源');
+            $form->image('portrait')->move('/images/mottos/' . date('Ym'));
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });

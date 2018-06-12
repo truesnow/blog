@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Motto extends Model
 {
+    protected $table = 'mottos';
     protected $fillable = ['author', 'source', 'portrait', 'content'];
 
     public static function random()
