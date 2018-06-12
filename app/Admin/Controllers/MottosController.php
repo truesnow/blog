@@ -74,13 +74,19 @@ class MottosController extends Controller
         return Admin::grid(Motto::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->portrait()->image();
+            $grid->portrait('肖像')->image();
             $grid->author('作者');
             $grid->source('来源');
             $grid->content('格言内容');
 
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
+
+            $grid->filter(function ($filter) {
+                $filter->like('author', '作者');
+                $filter->like('source', '来源');
+                $filter->like('content', '格言内容');
+            });
         });
     }
 
@@ -98,9 +104,9 @@ class MottosController extends Controller
             $form->textarea('content', '格言内容');
             $form->text('author', '作者');
             $form->text('source', '来源');
-            $form->image('portrait')->move('/images/mottos/' . date('Ym'));
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->image('portrait', '肖像')->move('/images/mottos/' . date('Ym'));
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }
