@@ -41,8 +41,8 @@ class SubjectsController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('修改专题');
+            $content->description('');
 
             $content->body($this->form()->edit($id));
         });
@@ -83,10 +83,16 @@ class SubjectsController extends Controller
                 }
             });
             $grid->name('专题名称')->editable();
-            $grid->description('描述')->editable('textarea');
+            $grid->description('专题描述')->editable('textarea');
             $grid->article_count('文章数量');
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
+
+            $grid->filter(function ($filter) {
+                $filter->like('name', '专题名称');
+                $filter->equal('parent_id', '父级专题')->select(Subject::topOptions());
+                $filter->like('description', '专题描述');
+            });
         });
     }
 
