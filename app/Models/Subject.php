@@ -27,4 +27,15 @@ class Subject extends Model
     {
         return Subject::where('parent_id', 0)->with('children')->get();
     }
+
+    public static function topOptions()
+    {
+        $list = Subject::where('parent_id', 0)->get();
+        $map = [0 => '顶级专题'];
+        foreach ($list as $k => $v) {
+            $map[$v['id']] = $v['name'];
+        }
+
+        return $map;
+    }
 }

@@ -57,8 +57,8 @@ class SubjectsController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('添加专题');
+            $content->description('');
 
             $content->body($this->form());
         });
@@ -74,9 +74,6 @@ class SubjectsController extends Controller
         return Admin::grid(Subject::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->name('专题名称')->editable();
-            $grid->description('描述')->editable('textarea');
-            $grid->article_count('文章数量');
             $grid->column('parent_subject_name', '父级专题')->display(function(){
                 if ($this->parent_id != 0) {
                     $parent_subject = Subject::find($this->parent_id);
@@ -85,6 +82,9 @@ class SubjectsController extends Controller
                     return '';
                 }
             });
+            $grid->name('专题名称')->editable();
+            $grid->description('描述')->editable('textarea');
+            $grid->article_count('文章数量');
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
         });
@@ -98,11 +98,13 @@ class SubjectsController extends Controller
     protected function form()
     {
         return Admin::form(Subject::class, function (Form $form) {
-
             $form->display('id', 'ID');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('name', '专题名称');
+            $form->textarea('description', '专题描述');
+            $form->select('parent_id', '父级专题')->options(Subject::topOptions());
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }
