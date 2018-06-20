@@ -99,6 +99,12 @@ class ArticlesController extends Controller
             $grid->actions(function ($actions) {
                 $actions->disableEdit();
             });
+
+            $grid->filter(function ($filter) {
+                $filter->like('title', '标题');
+                // $filter->equal('user_id', '作者')->select(Subject::topOptions());
+                $filter->like('excerpt', '摘要');
+            });
         });
     }
 
