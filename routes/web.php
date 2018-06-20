@@ -33,3 +33,5 @@ Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.up
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
+Route::get('bookmarks', 'BookmarksController@index')->name('bookmarks.index');
