@@ -1,47 +1,37 @@
 @extends('layouts.app')
 
+@section('title', '博客')
+
 @section('content')
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1>
-                    <i class="glyphicon glyphicon-align-justify"></i> Bookmark
-                </h1>
-            </div>
 
-            <div class="panel-body">
-                @if($bookmarks->count())
-                    <table class="table table-condensed table-striped">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th>Name</th> <th>Url</th> <th>Category_id</th> <th>Description</th> <th>Icon</th>
-                                <th class="text-right">OPTIONS</th>
-                            </tr>
-                        </thead>
+<div class="row">
+    <ul id="bookmarks_nav" class="nav nav-tabs" role="tablist">
+        @foreach ($first_categories as $k => $first_category)
+        <li class="">
+            <a href="#category_{{ $first_category['id'] }}" role="tab" data-toggle="tab" aria-expanded="false">{{ $first_category['name'] }}</a>
+        </li>
+        @endforeach
+    </ul>
 
-                        <tbody>
-                            @foreach($bookmarks as $bookmark)
-                                <tr>
-                                    <td class="text-center"><strong>{{$bookmark->id}}</strong></td>
-
-                                    <td>{{$bookmark->name}}</td> <td>{{$bookmark->url}}</td> <td>{{$bookmark->category_id}}</td> <td>{{$bookmark->description}}</td> <td>{{$bookmark->icon}}</td>
-
-                                    <td class="text-right">
-
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {!! $bookmarks->render() !!}
-                @else
-                    <h3 class="text-center alert alert-info">Empty!</h3>
-                @endif
-            </div>
+    <div id="bookmarks" class="tab-content">
+        @foreach ($bookmarks as $k1 => $first_category_item)
+        <div class="tab-pane" id="category_{{ $first_category_item['id'] }}">
+            @foreach ($first_category_item['children'] as $k2 => $second_category_item)
+                <h3>{{ $second_category_item['name'] }}</h3>
+                @foreach ($second_category_item['bookmarks'] as $k3 => $bookmark)
+                    <div class="bookmark">
+                        <img src="{{ $bookmark['icon'] }}" alt="" class="img img-thumbnail bookmark-icon">
+                        <a href="{{ $bookmark['url'] }}" target="_blank">{{ $bookmark['name'] }}</a>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
+        @endforeach
+        <div class="tab-pane" id="rule" data-toggle="tab">规则内容面板</div>
+        <div class="tab-pane active" id="forum" data-toggle="tab">论坛内容面板</div>
+        <div class="tab-pane" id="security" data-toggle="tab">安全内容面板</div>
+        <div class="tab-pane" id="welfare" data-toggle="tab">公益内容面板</div>
     </div>
 </div>
 
-@endsection
+@stop

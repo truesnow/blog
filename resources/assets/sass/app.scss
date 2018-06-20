@@ -99,6 +99,20 @@ body.theme-default {
             background-color: #d15b47 !important;;
         }
     }
+
+    .bookmarks-index-page {
+        .bookmark {
+            display: inline-block;
+            margin-right: 10px;
+            width: 150px;
+            height: 60px;
+            padding: 5px 10px;
+        }
+        .bookmark-icon {
+            width: 25px;
+            height: 25px;
+        }
+    }
 }
 
 .fixed {

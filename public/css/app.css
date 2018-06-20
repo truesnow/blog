@@ -8898,6 +8898,19 @@ body.theme-default .notifications-badge .badge-hint {
   background-color: #d15b47 !important;
 }
 
+body.theme-default .bookmarks-index-page .bookmark {
+  display: inline-block;
+  margin-right: 10px;
+  width: 150px;
+  height: 60px;
+  padding: 5px 10px;
+}
+
+body.theme-default .bookmarks-index-page .bookmark-icon {
+  width: 25px;
+  height: 25px;
+}
+
 .fixed {
   position: fixed;
   width: 100%;
