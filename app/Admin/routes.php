@@ -18,5 +18,6 @@ Route::group([
     $router->resource('messages', MessagesController::class);
     $router->resource('mottos', MottosController::class);
     $router->resource('bookmarkcategories', BookmarkCategoriesController::class);
+    $router->resource('bookmarks', BookmarksController::class);
 
 });

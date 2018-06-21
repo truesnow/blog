@@ -4,7 +4,7 @@ namespace App\Models;
 
 class BookmarkCategory extends Model
 {
-    use Traits\TopOptionsHelper;
+    use Traits\OptionsHelper;
 
     protected $fillable = ['name', 'parent_id', 'description'];
 
@@ -20,7 +20,7 @@ class BookmarkCategory extends Model
 
     public function parent()
     {
-        return $this->belongsTo(BookmarkCategory::class, 'id')->where('id', $this->parent_id);
+        return $this->belongsTo(BookmarkCategory::class, 'parent_id', 'id');
     }
 
     public function children()
