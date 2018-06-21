@@ -18,7 +18,6 @@ class BookmarksController extends Controller
     public function index()
     {
         $bookmarks = Bookmark::nav();
-        $first_categories = BookmarkCategory::firsts()->get();
 
         return view('bookmarks.index', compact('bookmarks', 'first_categories'));
     }
