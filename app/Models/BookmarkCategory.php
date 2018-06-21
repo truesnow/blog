@@ -4,6 +4,8 @@ namespace App\Models;
 
 class BookmarkCategory extends Model
 {
+    use Traits\TopOptionsHelper;
+
     protected $fillable = ['name', 'parent_id', 'description'];
 
     public function bookmarks()

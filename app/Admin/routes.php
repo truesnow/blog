@@ -17,5 +17,6 @@ Route::group([
     $router->resource('replies', RepliesController::class);
     $router->resource('messages', MessagesController::class);
     $router->resource('mottos', MottosController::class);
+    $router->resource('bookmarkcategories', BookmarkCategoriesController::class);
 
 });
