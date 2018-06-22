@@ -1,3 +1,5 @@
+@if (!empty($motto))
+
 <div class="media">
     <div class="media-left">
         <img src="{{ $motto->portrait }}" alt="{{ $motto->author }}" class="img img-circle">
@@ -7,3 +9,5 @@
         <p>{{ $motto->content }}</p>
     </div>
 </div>
+
+@endif
