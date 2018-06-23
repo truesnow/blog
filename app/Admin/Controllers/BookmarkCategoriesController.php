@@ -74,14 +74,7 @@ class BookmarkCategoriesController extends Controller
         return Admin::grid(BookmarkCategory::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('parent_category_name', '父级分类')->display(function(){
-                if ($this->parent_id != 0) {
-                    $parent_category = BookmarkCategory::find($this->parent_id);
-                    return $parent_category->name;
-                } else {
-                    return '';
-                }
-            });
+            $grid->parent_id('父级分类')->select(BookmarkCategory::getTopOptions(['' => '']));
             $grid->name('名称')->editable();
             $grid->description('描述')->editable('textarea');
             $grid->weight('排序权重值')->editable();

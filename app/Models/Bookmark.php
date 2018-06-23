@@ -15,4 +15,10 @@ class Bookmark extends Model
     {
         return BookmarkCategory::firsts()->with('children', 'children.bookmarks')->get();
     }
+
+    public function category_full_name()
+    {
+        $sub_options = BookmarkCategory::getSubOptions();
+        return array_get($sub_options, $this->category_id, '');
+    }
 }

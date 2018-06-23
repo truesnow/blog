@@ -18,10 +18,9 @@ trait OptionsHelper
     public static function getSubOptions($placeholder = [])
     {
         $list = static::where('parent_id', '!=', 0)->with('parent')->get()->toArray();
-        // dd($list);exit;
         $map = $placeholder;
         foreach ($list as $k => $v) {
-            $map[$v['id']] = $v['parent']['name'] . '-' . $v['name'];
+            $map[$v['id']] = sprintf('【%s】%s', $v['parent']['name'], $v['name']);
         }
 
         return $map;

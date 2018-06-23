@@ -84,11 +84,7 @@ class ArticlesController extends Controller
                 $user_link = route('users.show', $this->user_id);
                 return "<a href='{$user_link}'>{$user_name}</a>";
             });
-            $grid->subject()->name('所属专题')->display(function ($subject_name) {
-                $subject = Subject::find($this->subject_id);
-                $parent_subject = Subject::find($subject->parent_id);
-                return $parent_subject->name . ' > ' . $subject_name;
-            });
+            $grid->subject_id('所属专题')->select(Subject::getSubOptions(['' => '']));
             $grid->reply_count('评论数');
             $grid->view_count('阅读数');
             $grid->created_at('创建时间');
@@ -102,7 +98,7 @@ class ArticlesController extends Controller
 
             $grid->filter(function ($filter) {
                 $filter->like('title', '标题');
-                // $filter->equal('user_id', '作者')->select(Subject::topOptions());
+                $filter->equal('subject_id', '所属专题')->select(Subject::getSubOptions(['' => '']));
                 $filter->like('excerpt', '摘要');
             });
         });

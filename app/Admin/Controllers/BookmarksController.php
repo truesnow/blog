@@ -72,22 +72,16 @@ class BookmarksController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Bookmark::class, function (Grid $grid) {
+        $sub_options = BookmarkCategory::getSubOptions(['' => '请选择']);
+        return Admin::grid(Bookmark::class, function (Grid $grid) use ($sub_options) {
 
             $grid->id('ID')->sortable();
 
             $grid->column('name', '书签名称')->editable();
             $grid->icon('图标')->image();
-            // $grid->column('url', '链接')->display(function ($url) {
-                // return "<a href='{$url}' target='_blank'>{$url}</a>";
-            // });
             $grid->column('url', '链接')->editable('textarea');
             $grid->column('description', '描述')->editable('textarea');
-            $grid->column('category_id', '所属分类')->display(function ($category_id) {
-                $category = BookmarkCategory::find($category_id);
-                $parent_category = BookmarkCategory::find($category->parent_id);
-                return $parent_category->name . ' > ' . $category->name;
-            });
+            $grid->category_id('所属分类')->select($sub_options);
             $grid->weight('排序权重值')->editable();
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
