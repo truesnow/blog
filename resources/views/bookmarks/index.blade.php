@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '博客')
+@section('title', '书签导航')
 
 @section('content')
 
@@ -20,7 +20,7 @@
                 <h3>{{ $second_category_item['name'] }}</h3>
                 @foreach ($second_category_item['bookmarks'] as $k3 => $bookmark)
                     <div class="bookmark">
-                        <img src="{{ $bookmark['icon'] }}" alt="" class="img img-thumbnail bookmark-icon">
+                        <!-- <img src="{{ $bookmark['icon'] }}" alt="" class="img img-thumbnail bookmark-icon"> -->
                         <a href="{{ $bookmark['url'] }}" target="_blank">{{ $bookmark['name'] }}</a>
                     </div>
                 @endforeach

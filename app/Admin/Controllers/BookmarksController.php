@@ -88,6 +88,7 @@ class BookmarksController extends Controller
                 $parent_category = BookmarkCategory::find($category->parent_id);
                 return $parent_category->name . ' > ' . $category->name;
             });
+            $grid->weight('排序权重值')->editable();
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
 
@@ -114,8 +115,9 @@ class BookmarksController extends Controller
             $form->text('name', '书签名称');
             $form->text('url', '链接');
             $form->image('icon', '图标')->move('/images/bookmarks/' . date('Ym'));
-            $form->textarea('description', '描述');
+            $form->textarea('description', '描述')->rules('nullable');
             $form->select('category_id', '书签分类')->options(BookmarkCategory::getSubOptions());
+            $form->text('weight', '排序权重值');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
         });

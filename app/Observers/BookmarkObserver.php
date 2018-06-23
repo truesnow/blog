@@ -9,13 +9,12 @@ use App\Models\Bookmark;
 
 class BookmarkObserver
 {
-    public function creating(Bookmark $bookmark)
+    public function created(Bookmark $bookmark)
     {
-        //
-    }
-
-    public function updating(Bookmark $bookmark)
-    {
-        //
+        // 排序值为空更新排序值为 ID 的值
+        if (empty($bookmark->weight)) {
+            $bookmark->weight = $bookmark->id;
+            $bookmark->save();
+        }
     }
 }

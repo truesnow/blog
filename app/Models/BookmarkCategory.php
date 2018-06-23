@@ -6,16 +6,16 @@ class BookmarkCategory extends Model
 {
     use Traits\OptionsHelper;
 
-    protected $fillable = ['name', 'parent_id', 'description'];
+    protected $fillable = ['name', 'parent_id', 'description', 'weight'];
 
     public function bookmarks()
     {
-        return $this->hasMany(Bookmark::class, 'category_id');
+        return $this->hasMany(Bookmark::class, 'category_id')->orderBy('weight', 'desc');
     }
 
     public static function firsts()
     {
-        return self::where('parent_id', 0);
+        return self::where('parent_id', 0)->orderBy('weight', 'desc');
     }
 
     public function parent()
@@ -25,6 +25,6 @@ class BookmarkCategory extends Model
 
     public function children()
     {
-        return $this->hasMany(BookmarkCategory::class, 'parent_id');
+        return $this->hasMany(BookmarkCategory::class, 'parent_id')->orderBy('weight', 'desc');
     }
 }

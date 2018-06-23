@@ -8901,7 +8901,7 @@ body.theme-default .notifications-badge .badge-hint {
 body.theme-default .bookmarks-index-page .bookmark {
   display: inline-block;
   margin-right: 10px;
-  width: 150px;
+  width: 250px;
   height: 60px;
   padding: 5px 10px;
 }

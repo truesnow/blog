@@ -84,6 +84,7 @@ class BookmarkCategoriesController extends Controller
             });
             $grid->name('名称')->editable();
             $grid->description('描述')->editable('textarea');
+            $grid->weight('排序权重值')->editable();
 
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
@@ -110,6 +111,7 @@ class BookmarkCategoriesController extends Controller
             $form->text('name', '书签分类名称');
             $form->textarea('description', '描述');
             $form->select('parent_id', '父级分类')->options(BookmarkCategory::getTopOptions([0 => '一级分类']));
+            $form->text('weight', '排序权重值');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
         });
