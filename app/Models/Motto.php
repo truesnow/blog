@@ -14,4 +14,9 @@ class Motto extends Model
 
         return Motto::find($rand);
     }
+
+    public static function last()
+    {
+        return Motto::orderBy('id', 'desc')->first();
+    }
 }

@@ -47,4 +47,11 @@ class Article extends Model
     {
         return $this->hasMany(Reply::class)->recent();
     }
+
+    public static function listByRecent()
+    {
+        $articles = Article::with('user', 'replies', 'subject')->withOrder('recent')->paginate(10);
+
+        return $articles;
+    }
 }

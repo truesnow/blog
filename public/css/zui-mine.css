@@ -1,0 +1,37 @@
+body.theme-zui #header {
+  height: 20rem;
+  padding: 30px 0;
+  background: #808080 url(/images/blackwood.jpg?5e596fb7fc7fbe4b47562c2e40da71ae) repeat left top scroll;
+  color: #fff;
+}
+
+body.theme-zui #header img {
+  margin: 0 auto;
+}
+
+body.theme-zui .nav a {
+  letter-spacing: 0.5rem;
+}
+
+body.theme-zui .motto-wrap {
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  background-color: #353535;
+}
+
+body.theme-zui .motto-wrap * {
+  color: #f1f1f1;
+}
+
+body.theme-zui footer.page-footer {
+  height: 80px;
+  line-height: 80px;
+  background-color: #333;
+  color: #808080;
+}
+
+body.theme-zui footer.page-footer a {
+  color: #808080;
+}
+

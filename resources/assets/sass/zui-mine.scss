@@ -1,0 +1,34 @@
+body.theme-zui {
+    #header {
+        height: 20rem;
+        padding: 30px 0;
+        background: #808080 url(../images/blackwood.jpg) repeat left top scroll;
+        color: #fff;
+        img {
+            margin: 0 auto;
+        }
+    }
+    .nav {
+        a {
+            letter-spacing: 0.5rem;
+        }
+    }
+    .motto-wrap {
+        margin-top: -20px;
+        margin-bottom: 20px;
+        padding: 20px 0;
+        background-color: #353535;
+        * {
+            color: #f1f1f1;
+        }
+    }
+    footer.page-footer {
+        height: 80px;
+        line-height: 80px;
+        background-color: #333;
+        color: #808080;
+        a {
+            color: #808080;
+        }
+    }
+}
