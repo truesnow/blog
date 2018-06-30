@@ -1,4 +1,4 @@
-<div class="subjects-wrap">
+<div class="list subjects-wrap">
   <h3><i class="icon-folder-close-alt"></i> 专题</h4>
   <nav class="menu" data-ride="menu" style="width: 200px">
     <ul id="treeMenu" class="tree tree-menu" data-ride="tree">
