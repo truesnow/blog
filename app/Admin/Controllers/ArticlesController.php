@@ -45,8 +45,8 @@ class ArticlesController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('修改文章');
+            $content->description('');
 
             $content->body($this->form()->edit($id));
         });
@@ -61,8 +61,8 @@ class ArticlesController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('创建文章');
+            $content->description('');
 
             $content->body($this->form());
         });
@@ -90,10 +90,8 @@ class ArticlesController extends Controller
             $grid->created_at('创建时间');
             $grid->updated_at('更新时间');
 
-            $grid->disableCreateButton();
-
             $grid->actions(function ($actions) {
-                $actions->disableEdit();
+                // $actions->disableEdit();
             });
 
             $grid->filter(function ($filter) {
@@ -115,8 +113,15 @@ class ArticlesController extends Controller
 
             $form->display('id', 'ID');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->text('title', '标题');
+            $form->textarea('excerpt', '摘要');
+            $form->text('slug', 'Slug');
+            $form->select('subject_id', '所属专题')->options(Subject::getSubOptions(['' => '']));
+            $form->radio('user_id', '作者')->options([1 => 'truesnow']);
+            $form->editor('content', '文章内容');
+            $form->text('order', '排序')->value(100);
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }

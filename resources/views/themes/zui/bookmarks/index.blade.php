@@ -24,7 +24,7 @@
               <div class="row">
                 <div class="col-md-1">
                   <!-- 二级分类名称 -->
-                  <h4>{{ $second_category_item['name'] }}</h4>
+                  <h4 class="text-center">{{ $second_category_item['name'] }}</h4>
                 </div>
                 <div class="col-md-11">
 
