@@ -7,7 +7,7 @@
           <a href="#">{{ $subject->name }}</a>
           <ul>
             @foreach ($subject->children as $child)
-            <li><a href="#{{ $child->id }}">{{ $child->name }}</a></li>
+            <li><a href="{{ route('subjects.show', $child->id) }}">{{ $child->name }}</a></li>
             @endforeach
           </ul>
         </li>

@@ -26,8 +26,9 @@ class SubjectsController extends Controller
         } else {
             // 二级专题
             $articles = $subject->articles()->with('user', 'subject')->paginate(10);
+            $article_count = $subject->articles()->with('user', 'subject')->count();
 
-            return $this->view('subjects.show', compact('subject', 'articles'));
+            return $this->view('subjects.show', compact('subject', 'articles', 'article_count'));
         }
     }
 }

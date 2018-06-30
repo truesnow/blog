@@ -45,7 +45,7 @@ class Article extends Model
 
     public function replies()
     {
-        return $this->hasMany(Reply::class)->recent();
+        return $this->hasMany(Reply::class)->with('user')->recent();
     }
 
     public static function listByRecent()
