@@ -13,6 +13,7 @@ class MessagesController extends Controller
         $this->middleware('auth', [
             'except' => ['index'],
         ]);
+        parent::__construct();
     }
 
     public function index()
