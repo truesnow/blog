@@ -24,6 +24,10 @@ body.theme-zui .motto-wrap * {
   color: #f1f1f1;
 }
 
+body.theme-zui .yield-content {
+  padding: 20px 0;
+}
+
 body.theme-zui footer.page-footer {
   height: 80px;
   line-height: 80px;

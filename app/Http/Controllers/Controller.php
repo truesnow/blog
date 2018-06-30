@@ -15,9 +15,9 @@ class Controller extends BaseController
 
     public $theme;
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        $this->theme = $request->input('theme', config('app.theme'));
+        $this->theme = (new Request())->input('theme', config('app.theme'));
     }
 
     // 实现主题功能，检测主题下是否存在指定页面，没有则使用默认主题页面

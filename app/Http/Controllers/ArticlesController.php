@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\Models\Subject;
 use Auth;
@@ -15,12 +14,13 @@ class ArticlesController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
+        parent::__construct();
     }
 
     public function index(Request $request, Article $article)
     {
         $articles = $article->with('user', 'replies', 'subject')->withOrder($request->order)->paginate(20);
-        return view('articles.index', compact('articles'));
+        return $this->view('articles.index', compact('articles'));
     }
 
     public function show(Request $request, Article $article)
@@ -30,8 +30,9 @@ class ArticlesController extends Controller
         }
         // 阅读数+1
         $article->increment('view_count', 1);
+        $replies = $article->replies;
 
-        return view('articles.show', compact('article'));
+        return $this->view('articles.show', compact('article', 'replies'));
     }
 
     public function create(Article $article)

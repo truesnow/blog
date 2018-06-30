@@ -27,7 +27,7 @@
     <div id="app" class="{{ route_class() }}-page">
         @include('themes.zui.layouts._nav')
         @include('themes.zui.mottos._show')
-        <div class="container">
+        <div class="container yield-content">
             <!-- @include('shares._messages') -->
             @yield('content')
         </div>
@@ -56,7 +56,7 @@
         <script src="//cdn.bootcss.com/zui/1.8.1/lib/jquery/jquery.js"></script>
         <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
         <script src="//cdn.bootcss.com/zui/1.8.1/js/zui.min.js"></script>
-        <script src="/js/zui.js"></script>
+        <script src="/js/app.js"></script>
         @yield('js')
     </div>
 </body>
