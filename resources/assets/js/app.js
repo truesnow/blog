@@ -36,10 +36,8 @@ $.extend({
     }
 });
 
-$(document).ready(function() {
-    if ($(".menu").length) {
-        $.scrollFixed($(".menu"));
-    }
+function footerFixed()
+{
     // 页面高度小于浏览器高度时，设置为页脚在底部固定
     if ($(document.body).height() < $(window).height()) {
         $('footer.page-footer').css({
@@ -48,4 +46,15 @@ $(document).ready(function() {
             width: '100%',
         });
     }
+}
+
+$(document).ready(function() {
+    if ($(".menu").length) {
+        $.scrollFixed($(".menu"));
+    }
+    footerFixed();
+    // 点击 TAB 导航时固定底部导航
+    $('.nav li').on('click', function () {
+        footerFixed();
+    });
 });

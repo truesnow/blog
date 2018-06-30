@@ -39,3 +39,20 @@ body.theme-zui footer.page-footer a {
   color: #808080;
 }
 
+body.theme-zui .bookmarks-wrap {
+  padding-bottom: 20px;
+}
+
+body.theme-zui .bookmarks-wrap .bookmarks {
+  padding-top: 20px;
+}
+
+body.theme-zui .bookmarks-wrap .card {
+  height: 10rem;
+  border: none;
+}
+
+body.theme-zui .bookmarks-wrap .card a {
+  color: #3280fc;
+}
+

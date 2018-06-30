@@ -34,4 +34,17 @@ body.theme-zui {
             color: #808080;
         }
     }
+    .bookmarks-wrap {
+        padding-bottom: 20px;
+        .bookmarks {
+            padding-top: 20px;
+        }
+        .card {
+            height: 10rem;
+            border: none;
+            a {
+                color: #3280fc;
+            }
+        }
+    }
 }
