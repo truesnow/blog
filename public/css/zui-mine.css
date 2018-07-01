@@ -52,7 +52,7 @@ body.theme-zui .bookmarks-wrap .card {
   border: none;
 }
 
-body.theme-zui .bookmarks-wrap .card a {
+body.theme-zui .bookmarks-wrap .card .card-heading {
   color: #3280fc;
 }
 

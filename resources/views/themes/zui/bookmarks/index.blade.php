@@ -18,7 +18,8 @@
         @foreach ($bookmarks as $k1 => $first_category_item)
         <div class="tab-pane {{ $k1 == 0 ? 'active' : '' }}" id="category_{{ $first_category_item['id'] }}">
             @foreach ($first_category_item['children'] as $k2 => $second_category_item)
-              @if (count($second_category_item['bookmarks']) == 0)
+            <?php $bookmark_count = count($second_category_item['bookmarks']);  ?>
+              @if ($bookmark_count == 0)
                 <?php continue; ?>
               @endif
               <div class="row">
@@ -28,21 +29,21 @@
                 </div>
                 <div class="col-md-11">
 
+                  <div class="cards cards-condensed">
                       @foreach ($second_category_item['bookmarks'] as $k3 => $bookmark)
-                        @if (($k == 0 || ($k + 1) % 4 == 0))
-                        <div class="row">
+                        @if ($k3 == 0)
                         @endif
                           <div class="col-md-3">
-                            <div class="card" href="###">
+                            <a class="card" href="{{ $bookmark['url'] }}" target="_blank">
                               <!-- <img src="{{ $bookmark['icon'] }}" alt="" class="img img-thumbnail bookmark-icon"> -->
-                              <div class="card-heading"><a href="{{ $bookmark['url'] }}" target="_blank" nofollow><strong>{{ $bookmark['name'] }}</strong></a></div>
+                              <div class="card-heading"><strong>{{ $bookmark['name'] }}</strong></div>
                               <div class="card-content text-muted">{{ $bookmark['description'] }}</div>
-                            </div>
+                            </a>
                           </div>
-                          @if (($k == 0 || ($k + 1) % 4 == 0))
-                          </div>
+                          @if (($k3 + 1 == $bookmark_count) || ($k3 + 1) % 4 == 0)
                           @endif
                       @endforeach
+                  </div>
                     </div>
                 </div>
             @endforeach
