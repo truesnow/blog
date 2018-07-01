@@ -40,10 +40,13 @@ function footerFixed()
 {
     // 页面高度小于浏览器高度时，设置为页脚在底部固定
     if ($(document.body).height() < $(window).height()) {
+        $('.yield-content').css({
+            marginBottom: '100px'
+        });
         $('footer.page-footer').css({
             position: 'fixed',
             bottom: 0,
-            width: '100%',
+            width: '100%'
         });
     }
 }
