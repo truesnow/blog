@@ -21,3 +21,19 @@ function make_excerpt($value, $length = 200)
 
     return str_limit($excerpt, $length);
 }
+
+/**
+ * 将数组以某一字段分组
+ * @param  [type] $data      [description]
+ * @param  [type] $group_key [description]
+ * @return [type]            [description]
+ */
+function array_group($data, $group_key)
+{
+    $result = [];
+    foreach ($data as $k => $v) {
+        $result[$v[$group_key]][] = $v;
+    }
+
+    return $result;
+}

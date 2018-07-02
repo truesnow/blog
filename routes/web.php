@@ -35,3 +35,5 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
 Route::get('bookmarks', 'BookmarksController@index')->name('bookmarks.index');
+
+Route::resource('works', 'WorksController', ['only' => ['index']]);

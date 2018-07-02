@@ -21,7 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RepliesTableSeeder::class);
         $this->call(MottosTableSeeder::class);
         $this->call(BookmarkCategorysTableSeeder::class);
-		$this->call(BookmarksTableSeeder::class);
+        $this->call(BookmarksTableSeeder::class);
+		$this->call(WorksTableSeeder::class);
 
         Model::reguard();
     }
