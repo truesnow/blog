@@ -70,6 +70,20 @@ return [
             'url' => env('APP_URL') . '/uploads/',
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => env('QINIU_DOMAIN'), //你的七牛域名
+                'https'     => env('APP_URL'),//你的HTTPS域名
+                'custom'    => env('QINIU_CUSTOM_DOMAIN'),//Useless 没啥用，请直接使用上面的 default 项
+             ],
+            'access_key' => env('QINIU_ACCESS_KEY'),
+            'secret_key' => env('QINIU_SECRET_KEY'),
+            'bucket' => env('QINIU_BUCKET', 'test'),
+            'notify_url'=> '',  //持久化处理回调地址
+            'access'    => 'public'  //空间访问控制 public 或 private
+        ],
+
     ],
 
 ];

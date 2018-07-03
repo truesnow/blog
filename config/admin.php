@@ -68,7 +68,7 @@ return [
      */
     'upload' => [
 
-        'disk' => 'admin',
+        'disk' => 'qiniu',// admin
 
         'directory' => [
             'image' => 'images',
