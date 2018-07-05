@@ -80,8 +80,9 @@ return [
             'access_key' => env('QINIU_ACCESS_KEY'),
             'secret_key' => env('QINIU_SECRET_KEY'),
             'bucket' => env('QINIU_BUCKET', 'test'),
-            'notify_url'=> '',  //持久化处理回调地址
-            'access'    => 'public'  //空间访问控制 public 或 private
+            'notify_url'=> '',//持久化处理回调地址
+            'access'    => 'public',//空间访问控制 public 或 private
+            'url' => env('QINIU_DOMAIN'),
         ],
 
     ],

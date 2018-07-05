@@ -37,3 +37,10 @@ function array_group($data, $group_key)
 
     return $result;
 }
+
+function static_url($path)
+{
+    $filesystem = config('filesystems.default');
+    $url = config('filesystems.disks.' . $filesystem . '.url', '');
+    return $url . '/' . $path;
+}
