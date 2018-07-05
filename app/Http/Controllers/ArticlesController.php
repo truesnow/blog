@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     {
         $this->authorize('create', $article);
         $subjects = Subject::allSorted();
-        return view('articles.create_and_edit', compact('article', 'subjects'));
+        return $this->view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
     public function store(ArticleRequest $request, Article $article)

@@ -32,7 +32,7 @@ class ArticleObserver
     public function saving(Article $article)
     {
         // XSS 过滤
-        $article->content = clean($article->content, 'article_content');
+        // $article->content = clean($article->content, 'article_content');
 
         // 生成话题摘录
         if (empty($article->excerpt)) {
