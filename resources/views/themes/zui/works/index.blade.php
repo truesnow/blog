@@ -14,7 +14,7 @@ use App\Models\Work;
 <div class="cards cards-borderless">
     @foreach ($work_list as $work)
     <div class="col-md-4 col-sm-6 col-lg-3">
-      <a class="card" href="{{ $work['url'] }}" target="_blank">
+      <a class="card" href="{{ static_url($work['url']) }}" target="_blank">
         <img src="{{ $work['image'] }}" alt="">
         <!-- <div class="caption"></div> -->
         <div class="card-heading"><strong>{{ $work['name'] }}</strong></div>

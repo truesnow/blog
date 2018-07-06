@@ -44,7 +44,7 @@ function static_url($path)
 {
     $filesystem = config('filesystems.default');
     $url = config('filesystems.disks.' . $filesystem . '.url', '');
-    return $url . '/' . $path;
+    return 'http://' . $url . '/' . $path;
 }
 
 function theme_prefix()
