@@ -55,12 +55,10 @@
         </div>
       </footer>
     </article>
+    @include('themes.zui.articles._reply_list', compact('replies'))
+
   </div>
 </div>
-
-
-@include('themes.zui.articles._reply_list', compact('replies'))
-
 
 @stop
 

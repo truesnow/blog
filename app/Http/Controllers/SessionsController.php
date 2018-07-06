@@ -12,11 +12,12 @@ class SessionsController extends Controller
         $this->middleware('guest', [
             'only' => ['create']
         ]);
+        parent::__construct();
     }
 
     public function create()
     {
-        return view('sessions.create');
+        return $this->view('sessions.create');
     }
 
     public function store(Request $request)

@@ -19,10 +19,4 @@ class PagesController extends Controller
 
         return $this->view('pages.index', compact('motto', 'articles', 'article_count', 'subjects'));
     }
-
-    public function mine()
-    {
-        $data = config('mine');
-        return $this->view('pages.mine', compact('data'));
-    }
 }

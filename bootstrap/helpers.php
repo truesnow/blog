@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /**
  * 将当前页面路由名称中的 `.` 替换为 `-`，作为当前视图页面 class
  * @return string 路由视图 class 名称
@@ -43,4 +45,14 @@ function static_url($path)
     $filesystem = config('filesystems.default');
     $url = config('filesystems.disks.' . $filesystem . '.url', '');
     return $url . '/' . $path;
+}
+
+function theme_prefix()
+{
+    $theme = (new Request())->query('theme', config('app.theme', ''));
+    if (!empty($theme)) {
+        return "themes.{$theme}.";
+    }
+
+    return '';
 }
