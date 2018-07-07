@@ -56,7 +56,7 @@ class ArticlesController extends Controller
     {
         $this->authorize('update', $article);
         $subjects = Subject::allSorted();
-        return view('articles.create_and_edit', compact('article', 'subjects'));
+        return $this->view('articles.create_and_edit', compact('article', 'subjects'));
     }
 
     public function update(ArticleRequest $request, Article $article)
