@@ -9,18 +9,18 @@ class Editormd extends Field
     protected $view = 'admin.editormd';
 
     protected static $css = [
-        '/css/editormd.css',
+        '/vendor/editormd/css/editormd.css',
     ];
 
     protected static $js = [
-        '/js/editormd.min.js',
+        '/vendor/editormd/editormd.min.js',
     ];
 
     public function render()
     {
         $this->script = <<<EOT
 
-testEditor = editormd({
+adminEditor = editormd({
     id      : "admin-editormd",
     width   : "66%",
     height  : 640,
