@@ -84,7 +84,11 @@
             id      : "article-editormd",
             width   : "100%",
             height  : 640,
-            path    : "/vendor/editormd/lib/"
+            path    : "/vendor/editormd/lib/",
+            imageUpload    : true,
+            imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : '{{ route('articles.editormd_upload_image') }}',
+            imageParams: { _token: '{{ csrf_token() }}' }
         });
 
     });

@@ -8,6 +8,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Subject;
 use Auth;
 use App\Handlers\ImageUploadHandler;
+use App\Handlers\QiniuHandler;
 
 class ArticlesController extends Controller
 {
@@ -91,5 +92,24 @@ class ArticlesController extends Controller
         }
 
         return $data;
+    }
+
+    public function editormdUploadImage(Request $request, QiniuHandler $qiniu)
+    {
+        $result = [
+            'success' => 0,
+            'message' => '上传失败！',
+            'url' => '',
+        ];
+
+        if ($url = $qiniu->save($request->file('editormd-image-file'), 'images/articles')) {
+            $result = [
+                'success' => 1,
+                'message' => '上传成功！',
+                'url' => static_url($url),
+            ];
+        }
+
+        return $result;
     }
 }
