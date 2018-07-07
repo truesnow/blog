@@ -102,7 +102,9 @@ class ArticlesController extends Controller
             'url' => '',
         ];
 
-        if ($url = $qiniu->save($request->file('editormd-image-file'), 'images/articles')) {
+        $file = $request->file('editormd-image-file') ? : $request->input('editormd-image-file');
+
+        if ($url = $qiniu->save($file, 'images/articles')) {
             $result = [
                 'success' => 1,
                 'message' => '上传成功！',

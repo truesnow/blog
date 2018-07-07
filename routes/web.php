@@ -31,6 +31,7 @@ Route::resource('subjects', 'SubjectsController', ['only' => ['index', 'show', '
 
 Route::post('upload_image', 'ArticlesController@uploadImage')->name('articles.upload_image');
 Route::post('editormd_upload_image', 'ArticlesController@editormdUploadImage')->name('articles.editormd_upload_image');
+Route::post('editormd_paste_upload_image', 'ResourcesController@editormdPasteUploadImage')->name('resources.editormd_paste_upload_image');
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
 
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
