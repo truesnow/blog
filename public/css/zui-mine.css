@@ -73,3 +73,8 @@ body.theme-zui .article-sidebar {
   position: fixed;
 }
 
+body.theme-zui .work-image {
+  width: 375px;
+  height: 135px;
+}
+
