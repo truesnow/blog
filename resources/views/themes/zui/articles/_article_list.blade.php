@@ -11,12 +11,12 @@
             <div class="item-heading">
               <h4><a href="{{ $article->link() }}">{{ $article->title }}</a></h4>
             </div>
-            <div class="item-content">{{ $article->excerpt }}</div>
+            <!-- <div class="item-content">{{ $article->excerpt }}</div> -->
             <div class="item-footer">
-              <a href="{{ route('subjects.show', $article->subject->id) }}"><i class="icon-archive"></i>{{ $article->subject->name }}</a> &nbsp;
-              <span class="text-muted"><i class="icon-eye-open"></i> {{ $article->view_count }}</span> &nbsp;
-              <span class="text-muted"><i class="icon-comments"></i> {{ $article->reply_count }}</span> &nbsp;
-              <span class="text-muted">{{ $article->created_at->diffForHumans() }}</span>
+              <!-- <a href="{{ route('subjects.show', $article->subject->id) }}"><i class="icon-archive"></i>{{ $article->subject->name }}</a> &nbsp; -->
+              <!-- <span class="text-muted"><i class="icon-eye-open"></i> {{ $article->view_count }}</span> &nbsp; -->
+              <!-- <span class="text-muted"><i class="icon-comments"></i> {{ $article->reply_count }}</span> &nbsp; -->
+              <!-- <span class="text-muted">{{ $article->created_at->diffForHumans() }}</span> -->
             </div>
           </div>
         </div>

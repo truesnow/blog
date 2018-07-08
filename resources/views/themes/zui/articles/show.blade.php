@@ -13,13 +13,13 @@
 @section('content')
 
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-3">
     <div id="sidebar" class="article-sidebar hidden-sm hidden-xs">
         <h1>文章目录</h1>
         <div class="markdown-body editormd-preview-container" id="custom-toc-container">#custom-toc-container</div>
     </div>
   </div>
-  <div class="col-md-10">
+  <div class="col-md-9">
     <article class="article">
       <header>
         <h1 class="text-center">{{ $article->title }}</h1>
