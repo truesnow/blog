@@ -35,7 +35,7 @@
                         @endif
                           <div class="col-md-3">
                             <a class="card" href="{{ $bookmark['url'] }}" target="_blank">
-                              <!-- <img src="{{ $bookmark['icon'] }}" alt="" class="img img-thumbnail bookmark-icon"> -->
+                              <img src="{{ static_url($bookmark['icon']) }}" alt="" class="img img-thumbnail bookmark-icon">
                               <div class="card-heading"><strong>{{ $bookmark['name'] }}</strong></div>
                               <div class="card-content text-muted">{{ $bookmark['description'] }}</div>
                             </a>

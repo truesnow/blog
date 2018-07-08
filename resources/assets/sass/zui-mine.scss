@@ -8,11 +8,13 @@ body.theme-zui {
             margin: 0 auto;
         }
     }
+    /* 顶部导航 */
     .nav {
         a {
             letter-spacing: 0.5rem;
         }
     }
+    /* 格言区域 */
     .motto-wrap {
         margin-top: -20px;
         margin-bottom: 20px;
@@ -22,9 +24,11 @@ body.theme-zui {
             color: #f1f1f1;
         }
     }
+    /* 网页内容区域 */
     .yield-content {
         padding: 20px 0;
     }
+    /* 页脚 */
     footer.page-footer {
         height: 80px;
         line-height: 80px;
@@ -36,6 +40,7 @@ body.theme-zui {
             color: #808080;
         }
     }
+    /* 书签 */
     .bookmarks-wrap {
         .bookmarks {
             padding-top: 20px;
@@ -45,6 +50,10 @@ body.theme-zui {
             border: none;
             .card-heading {
                 color: #3280fc;
+            }
+            .bookmark-icon {
+                width: 375px;
+                height: 135px;
             }
         }
     }

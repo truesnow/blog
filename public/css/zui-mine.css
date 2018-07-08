@@ -1,3 +1,13 @@
+@charset "UTF-8";
+
+body.theme-zui {
+  /* 顶部导航 */
+  /* 格言区域 */
+  /* 网页内容区域 */
+  /* 页脚 */
+  /* 书签 */
+}
+
 body.theme-zui #header {
   height: 20rem;
   padding: 30px 0;
@@ -52,6 +62,11 @@ body.theme-zui .bookmarks-wrap .card {
 
 body.theme-zui .bookmarks-wrap .card .card-heading {
   color: #3280fc;
+}
+
+body.theme-zui .bookmarks-wrap .card .bookmark-icon {
+  width: 375px;
+  height: 135px;
 }
 
 body.theme-zui .article-sidebar {
