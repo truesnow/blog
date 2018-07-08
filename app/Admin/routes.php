@@ -20,5 +20,6 @@ Route::group([
     $router->resource('bookmarkcategories', BookmarkCategoriesController::class);
     $router->resource('bookmarks', BookmarksController::class);
     $router->resource('works', WorksController::class);
+    $router->resource('pages', PagesController::class);
 
 });

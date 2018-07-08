@@ -118,7 +118,8 @@ class ArticlesController extends Controller
             $form->text('slug', 'Slug');
             $form->select('subject_id', '所属专题')->options(Subject::getSubOptions(['' => '']));
             $form->radio('user_id', '作者')->options([1 => 'truesnow']);
-            $form->editor('content', '文章内容');
+            // $form->editor('content', '文章内容');
+            $form->editormd('content', '文章内容');
             $form->text('order', '排序')->value(100);
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');

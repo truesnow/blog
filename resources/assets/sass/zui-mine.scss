@@ -30,14 +30,20 @@ body.theme-zui {
     }
     /* 页脚 */
     footer.page-footer {
-        height: 80px;
-        line-height: 80px;
+        line-height: 3rem;
         background-color: #333;
         margin-top: 30px;
+        padding: 15px 0;
         z-index: 99;
         color: #808080;
         a {
             color: #808080;
+        }
+        .links {
+            a {
+                display: inline-block;
+                margin: 0 10px;
+            }
         }
     }
     /* 书签 */

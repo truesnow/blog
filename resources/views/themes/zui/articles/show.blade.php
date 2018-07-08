@@ -88,6 +88,3 @@ $(function() {
 </script>
 
 @stop
-
-
-
