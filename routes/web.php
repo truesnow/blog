@@ -51,3 +51,7 @@ Route::resource('works', 'WorksController', ['only' => ['index']]);
 
 // 静态页面
 Route::get('{name}', 'PagesController@show')->name('pages.show');
+
+// 有趣的前端
+Route::get('funjs/random-circles', 'PagesController@randomCircles')->name('funjs.random-circles');
+

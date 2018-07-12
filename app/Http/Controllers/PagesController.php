@@ -28,4 +28,9 @@ class PagesController extends Controller
 
         return $this->view('pages.show', compact('page'));
     }
+
+    public function randomCircles()
+    {
+        return $this->view('pages.random-circles');
+    }
 }
