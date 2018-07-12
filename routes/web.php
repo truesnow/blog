@@ -54,4 +54,5 @@ Route::get('{name}', 'PagesController@show')->name('pages.show');
 
 // 有趣的前端
 Route::get('funjs/random-circles', 'PagesController@randomCircles')->name('funjs.random-circles');
+Route::get('funjs/bouncing-balls', 'PagesController@bouncingBalls')->name('funjs.bouncing-balls');
 

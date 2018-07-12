@@ -33,4 +33,9 @@ class PagesController extends Controller
     {
         return $this->view('pages.random-circles');
     }
+
+    public function bouncingBalls()
+    {
+        return $this->view('pages.bouncing-balls');
+    }
 }
