@@ -49,7 +49,7 @@ function static_url($path)
 
 function theme_prefix()
 {
-    $theme = (new Request())->query('theme', config('app.theme', ''));
+    $theme = request()->input('theme', session('theme', config('app.theme', '')));
     if (!empty($theme)) {
         return "themes.{$theme}.";
     }
