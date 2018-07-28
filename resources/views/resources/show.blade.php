@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <th>资源内容</th>
-            <td><img src="{{ $url }}" alt="{{ $name }}"></td>
+            <td><img src="{{ $url }}" alt="{{ $name }}" width="100" height="100"></td>
         </tr>
     </tbody>
 </table>

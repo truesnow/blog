@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Handlers\QiniuHandler;
 use zgldh\QiniuStorage\QiniuStorage;
+use Storage;
 
 /**
  * 资源管理控制器，包含图片上传等
@@ -40,7 +41,7 @@ class ResourcesController extends Controller
         return $result;
     }
 
-    public function create(Request $request)
+    public function create()
     {
         return $this->view('resources/create');
     }
@@ -52,6 +53,7 @@ class ResourcesController extends Controller
 
         $name = $disk->put('uploads/images/' . date('Ym'), $file);
         $url = $disk->downloadUrl($name);
+        // $url = Storage::url($name);
 
         return $this->view('resources.show', compact('name', 'url'));
     }
