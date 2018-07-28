@@ -8,7 +8,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Subject;
 use Auth;
 use App\Handlers\ImageUploadHandler;
-use App\Handlers\QiniuHandler;
+use zgldh\QiniuStorage\QiniuStorage;
 
 class ArticlesController extends Controller
 {
@@ -94,7 +94,7 @@ class ArticlesController extends Controller
         return $data;
     }
 
-    public function editormdUploadImage(Request $request, QiniuHandler $qiniu)
+    public function editormdUploadImage(Request $request)
     {
         $result = [
             'success' => 0,
@@ -102,13 +102,13 @@ class ArticlesController extends Controller
             'url' => '',
         ];
 
-        $file = $request->file('editormd-image-file') ? : $request->input('editormd-image-file');
-
-        if ($url = $qiniu->save($file, 'images/articles')) {
+        $file = $request->file('editormd-image-file');
+        $disk = QiniuStorage::disk('qiniu');
+        if ($file_name = $disk->put('images/articles/' . date('Ym'), $file)) {
             $result = [
                 'success' => 1,
                 'message' => '上传成功！',
-                'url' => static_url($url),
+                'url' => $disk->downloadUrl($file_name),
             ];
         }
 

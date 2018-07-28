@@ -12,18 +12,6 @@ use Qiniu\Storage\UploadManager;
 class QiniuHandler
 {
     /**
-     * 上传文件
-     * @param  object $file   表单中的文件
-     * @param  string $folder 上传的目录
-     * @return string         文件名（包含存储路径，无域名）
-     */
-    public function save($file, $folder = 'images')
-    {
-        $disk = QiniuStorage::disk('qiniu');
-        return $disk->put($folder . date('/Ym/'), $file);
-    }
-
-    /**
      * base64 上传图片，适用于粘贴上传图片的场景
      * @param  string $base64 图片 base64 编码
      * @param  string $folder 存储文件夹
