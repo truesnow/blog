@@ -5,6 +5,7 @@ namespace App\Handlers;
 use zgldh\QiniuStorage\QiniuStorage;
 use Qiniu\Auth as QiniuAuth;
 use Qiniu\Storage\UploadManager;
+use Storage;
 
 /**
  * 七牛处理器
@@ -14,21 +15,21 @@ class QiniuHandler
     /**
      * base64 上传图片，适用于粘贴上传图片的场景
      * @param  string $base64 图片 base64 编码
-     * @param  string $folder 存储文件夹
+     * @param  string $source 来源
      * @return [type]         [description]
      */
-    public function saveBase64($base64, $folder = 'images')
+    public function saveBase64($base64, $source = 'articles')
     {
         // 初始化 UploadManager 对象并进行文件的上传。
         $upload_manager = new UploadManager();
         // 按年月存储，便于查找和定位
-        $key = $folder . '/' . date('Ym/') . str_random(15) . '.png';
+        $key = 'images/' . $source . '/' . date('Ym/') . str_random(32) . '.png';
         list($ret, $err) = $upload_manager->putFile($this->getUploadToken(), $key, $base64);
         if ($err === null) {
             return [
                 'hash' => $ret['hash'],// 文件hash
                 'key' => $ret['key'],// 文件名
-                'url' => static_url($ret['key']),// 文件链接
+                'url' => Storage::url($ret['key']),// 文件链接
             ];
         } else {
             return $err;

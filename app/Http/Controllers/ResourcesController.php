@@ -20,13 +20,14 @@ class ResourcesController extends Controller
      */
     public function editormdPasteUploadImage(Request $request, QiniuHandler $handler)
     {
+        $source = $request->input('source', 'articles');// 来源，默认文章
         $result = [
             'success' => 0,
             'message' => '上传失败！',
             'url' => '',
         ];
 
-        $save_ret = $handler->saveBase64($request->input('image'));
+        $save_ret = $handler->saveBase64($request->input('image'), $source);
 
         if (isset($save_ret['url'])) {
             $result = [
