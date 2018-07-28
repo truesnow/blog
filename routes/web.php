@@ -56,3 +56,7 @@ Route::get('{name}', 'PagesController@show')->name('pages.show');
 Route::get('funjs/random-circles', 'PagesController@randomCircles')->name('funjs.random-circles');
 Route::get('funjs/bouncing-balls', 'PagesController@bouncingBalls')->name('funjs.bouncing-balls');
 
+// 资源管理
+Route::get('resources/create', 'ResourcesController@create')->name('resources.create');
+Route::post('resources/store', 'ResourcesController@store')->name('resources.store');
+Route::get('resources/show', 'ResourcesController@store')->name('resources.show');
