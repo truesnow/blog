@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /public/uploads
+/public/js/app.js
+/public/css/app.css
 /vendor
 /.idea
 /.vagrant

@@ -38,7 +38,7 @@
         </section>
       </header>
       <section class="content" id="article-editormd-view">
-        <textarea name="" id="append-article" style="display:none;">{!! $article->content !!}</textarea>
+        <textarea>{!! $article->content !!}</textarea>
       </section>
       <footer>
         <div class="operate">
