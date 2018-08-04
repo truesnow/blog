@@ -11,8 +11,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.gif">
     <!-- <link rel="stylesheet" href="/css/app.css"> -->
     <link rel="stylesheet" href="//cdn.bootcss.com/zui/1.8.1/css/zui.min.css">
-    <link rel="stylesheet" href="/css/zui-theme.css">
-    <link rel="stylesheet" href="/css/zui-mine.css">
+    <link rel="stylesheet" href="{{ asset('css/zui-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/zui-mine.css') }}">
     @yield('css')
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -56,7 +56,8 @@
         <script src="//cdn.bootcss.com/zui/1.8.1/lib/jquery/jquery.js"></script>
         <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
         <script src="//cdn.bootcss.com/zui/1.8.1/js/zui.min.js"></script>
-        <script src="/js/app.js"></script>
+        <script src="{{ asset('vendor/layer/layer.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
         @yield('js')
     </div>
 </body>

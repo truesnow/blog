@@ -63,4 +63,13 @@ $(document).ready(function() {
     $('.nav li').on('click', function () {
         footerFixed();
     });
+    // 设置 Ajax 请求全局 loading，如无需 loading，在 ajax 方法中设置 global 为 false
+    $(document).bind("ajaxSend", function () {
+        ajax_loading_index = layer.load(1, {
+            shade: [0.1, '#fff'], //0.1透明度的白色背景
+            time: 15 * 1000
+        });
+    }).bind("ajaxComplete", function () {
+        layer.close(ajax_loading_index);
+    });
 });
