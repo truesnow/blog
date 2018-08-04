@@ -46,7 +46,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label for="toc">生成目录结果：</label>
-      <button type="button" class="btn btn-primary">复制</button>
+      <button type="button" class="btn btn-primary" id="copy-btn" data-clipboard-action="copy" data-clipboard-target="#toc">复制</button>
       <textarea name="toc" id="toc" cols="30" rows="20" class="form-control"></textarea>
     </div>
   </div>
@@ -64,6 +64,7 @@
 @stop
 
 @section("js")
+<script src="{{ asset('vendor/clipboard/clipboard.min.js') }}"></script>
 <script>
   $(function(){
     // 使用示例 url
@@ -84,6 +85,11 @@
         $('#toc').val(res);
       });
       e.preventDefault();
+    });
+    // 初始化复制功能
+    var clipboard = new ClipboardJS('#copy-btn');
+    clipboard.on('success', function(e) {
+      layer.msg('目录已复制');
     });
   });
 </script>
