@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Subject;
 use App\Models\Page;
 use DB;
+use Storage;
 
 class PagesController extends Controller
 {
@@ -37,5 +38,39 @@ class PagesController extends Controller
     public function bouncingBalls()
     {
         return $this->view('pages.bouncing-balls');
+    }
+
+    // Generate Github markdown README.md TOC use https://github.com/ekalinin/github-markdown-toc
+    public function ghtoc()
+    {
+        return $this->view('pages.ghtoc');
+    }
+
+    public function ghtocRun(Request $request)
+    {
+        $res = '';
+        $ghtoc_command = config('custom.ghtoc_path');
+        $this->validate($request, [
+            'type' => 'in:url,content',
+            'url' => 'url',
+            'content' => 'string',
+        ]);
+
+        switch ($request['type']) {
+            case 'url':
+                $res = passthru("$ghtoc_command " . $request['url']);
+                break;
+            case 'content':
+                // 存储 content 到文件再执行
+                $filename = 'ghtoc/' . date('YmdHis') . '_' . str_random(10) . '.md';
+                Storage::disk('local')->put($filename, $request['content']);
+                $file_path = storage_path('app') . '/' . $filename;
+                $res = passthru("$ghtoc_command " . $file_path);
+                break;
+            default:
+                ;
+        }
+
+        return $res;
     }
 }
