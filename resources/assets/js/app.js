@@ -36,6 +36,10 @@ $.extend({
                 ele.removeClass("fixed");
             }
         });
+    },
+    recordRedirect: function (type, url) {
+        // encodeURIComponent(url)
+        $.post('redirect', {type: type, url: url}, function (e) { });
     }
 });
 

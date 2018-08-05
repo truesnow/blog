@@ -9,6 +9,7 @@ use App\Models\Subject;
 use App\Models\Page;
 use DB;
 use Storage;
+use Illuminate\Support\Facades\Redis;
 
 class PagesController extends Controller
 {
@@ -72,5 +73,18 @@ class PagesController extends Controller
         }
 
         return $res;
+    }
+
+    /**
+     * 空方法，用于记录书签和作品中的第三方链接的访问
+     */
+    public function redirectTo()
+    {
+        $type = request()->input('type');
+        $key = 'blog:redirect:' . $type;
+        $url = request()->input('url');
+        Redis::hincrby($key, $url, 1);
+
+        return response()->json(['msg' => 'recorded', 'url' => $url]);
     }
 }

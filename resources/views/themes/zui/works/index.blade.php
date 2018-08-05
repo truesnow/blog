@@ -14,7 +14,7 @@ use App\Models\Work;
 <div class="cards cards-borderless">
     @foreach ($work_list as $work)
     <div class="col-md-4 col-sm-6 col-lg-3">
-      <a class="card" href="{{ $work['url'] }}" target="_blank">
+      <a class="card work-url" href="{{ $work['url'] }}" target="_blank">
         <img src="{{ static_url($work['image']) }}" alt="" class="work-image">
         <!-- <div class="caption"></div> -->
         <div class="card-heading"><strong>{{ $work['name'] }}</strong></div>
@@ -24,5 +24,16 @@ use App\Models\Work;
     @endforeach
 </div>
 @endforeach
+
+@stop
+
+@section('js')
+<script>
+    $(function () {
+        $('.work-url').on('click', function (e) {
+            $.recordRedirect('works', $(this).attr('href'));
+        });
+    });
+</script>
 
 @stop
