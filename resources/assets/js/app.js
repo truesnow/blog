@@ -37,6 +37,11 @@ $.extend({
             }
         });
     },
+    /**
+     * 外部 URL 访问记录
+     * type: 访问类型，如 bookmarks / works
+     * url: 访问的 url
+     */
     recordRedirect: function (type, url) {
         // encodeURIComponent(url)
         $.post('redirect', {type: type, url: url}, function (e) { });

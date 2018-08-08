@@ -88,6 +88,8 @@ class UsersController extends Controller
             $grid->updated_at('更新时间');
 
             $grid->filter(function($filter) {
+                $filter->like('name');
+                $filter->like('email');
                 $filter->between('created_at', '注册时间')->datetime();
             });
 
@@ -95,7 +97,7 @@ class UsersController extends Controller
             $grid->disableExport();
 
             $grid->actions(function ($actions) {
-                $actions->disableEdit();
+                // $actions->disableEdit();
             });
         });
     }
@@ -110,9 +112,13 @@ class UsersController extends Controller
         return Admin::form(User::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            // $form->image('avatar', '头像')->move('/images/mottos/' . date('Ym'));
+            $form->text('name', '用户名');
+            $form->text('email', '邮箱');
+            $form->textarea('introduction', '简介');
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '注册时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }

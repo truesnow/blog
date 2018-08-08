@@ -64,6 +64,7 @@ Route::get('funjs/bouncing-balls', 'PagesController@bouncingBalls')->name('funjs
 Route::get('ghtoc', 'PagesController@ghtoc')->name('ghtoc');
 Route::post('ghtoc/run', 'PagesController@ghtocRun')->name('ghtoc.run');
 
+// 外部 URL 访问记录
 Route::post('redirect', 'PagesController@redirectTo')->name('redirect');
 
 // 静态页面
