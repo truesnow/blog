@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
+        App\Providers\EasySmsServiceProvider::class,
 
     ],
 
