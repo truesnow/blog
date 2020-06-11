@@ -53,6 +53,9 @@ Route::get('bookmarks', 'BookmarksController@index')->name('bookmarks.index');
 // 作品
 Route::resource('works', 'WorksController', ['only' => ['index']]);
 
+// 缩略词
+Route::resource('abbrs', 'AbbrsController', ['only' => ['index']]);
+
 /**
  * pages
  */
