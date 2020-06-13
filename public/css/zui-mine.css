@@ -20,7 +20,7 @@ body.theme-zui #header img {
 }
 
 body.theme-zui .nav a {
-  /* letter-spacing: 0.5rem; */
+  letter-spacing: 0.5rem;
 }
 
 body.theme-zui .motto-wrap {

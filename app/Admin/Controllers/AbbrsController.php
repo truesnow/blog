@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Actions\Abbr\BatchCreate;
 use App\Models\Abbr;
 
 use Encore\Admin\Form;
@@ -85,6 +86,10 @@ class AbbrsController extends Controller
             $grid->updated_at('更新时间');
 
             $grid->actions(function ($actions) {
+            });
+
+            $grid->tools(function (Grid\Tools $tools) {
+                $tools->append(new BatchCreate);
             });
 
             $grid->filter(function ($filter) {
