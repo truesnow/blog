@@ -23,5 +23,5 @@ Route::group([
     $router->resource('pages', PagesController::class);
     $router->resource('visitlogs', VisitLogsController::class);
     $router->resource('abbrs', AbbrsController::class);
-
+    $router->resource('milestones', MilestonesController::class);
 });

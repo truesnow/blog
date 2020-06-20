@@ -24,7 +24,7 @@ class CreateAbbrsTable extends Migration
             $table->string('cn_name', 255)->comment('中文名')->default('');
             $table->string('desc', 1024)->comment('说明')->default('');
             $table->timestamp('created_at')->useCurrent()->comment('创建时间');
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->comment('创建时间');
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->comment('更新时间');
 
             $table->index('abbr', 'idx_abbr');
         });

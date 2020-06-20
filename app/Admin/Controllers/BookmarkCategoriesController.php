@@ -9,11 +9,11 @@ use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Controllers\HasResourceActions;
 
 class BookmarkCategoriesController extends Controller
 {
-    use ModelForm;
+    use HasResourceActions;
 
     /**
      * Index interface.
@@ -74,7 +74,7 @@ class BookmarkCategoriesController extends Controller
         return Admin::grid(BookmarkCategory::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->parent_id('父级分类')->select(BookmarkCategory::getTopOptions(['' => '']));
+            $grid->parent_id('父级分类')->select(BookmarkCategory::getTopOptions([0 => '一级分类']));
             $grid->name('名称')->editable();
             $grid->description('描述')->editable('textarea');
             $grid->weight('排序权重值')->editable();

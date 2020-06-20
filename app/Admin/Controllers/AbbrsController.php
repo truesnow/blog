@@ -78,8 +78,8 @@ class AbbrsController extends Controller
         return Admin::grid(Abbr::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('abbr', '缩写');
-            $grid->column('full_name', '全称');
+            $grid->column('abbr', '缩写')->sortable();
+            $grid->column('full_name', '全称')->sortable();
             $grid->cn_name('中文名');
             $grid->desc('说明');
             $grid->created_at('创建时间');

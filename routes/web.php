@@ -56,6 +56,9 @@ Route::resource('works', 'WorksController', ['only' => ['index']]);
 // 缩略词
 Route::resource('abbrs', 'AbbrsController', ['only' => ['index']]);
 
+// 里程碑
+Route::resource('milestones', 'MilestonesController', ['only' => ['index']]);
+
 /**
  * pages
  */

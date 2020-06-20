@@ -129,7 +129,7 @@ return [
     /*
      * @see https://adminlte.io/docs/2.4/layout
      */
-    'skin' => 'skin-blue-light',
+    'skin' => 'skin-purple-light',
 
     /*
     |---------------------------------------------------------|
@@ -145,7 +145,7 @@ return [
     /*
      * Background image in login page
      */
-    'login_background_image' => '',
+    'login_background_image' => 'http://static.sleepeatcode.com/imagePuezGeislerItaly.jpg',
 
     /*
      * Version displayed in footer.
@@ -158,4 +158,24 @@ return [
     'extensions' => [
 
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Show version at footer
+    |--------------------------------------------------------------------------
+    |
+    | 是否在页面的右下角显示当前laravel-admin的版本
+    |
+    */
+    'show_version' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Show environment at footer
+    |--------------------------------------------------------------------------
+    |
+    | 是否在页面的右下角显示当前的环境
+    |
+    */
+    'show_environment' => true,
 ];
