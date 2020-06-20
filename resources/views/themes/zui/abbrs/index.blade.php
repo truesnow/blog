@@ -1,6 +1,6 @@
 @extends('themes.zui.layouts.app')
 
-@section('title', '计算机缩略词大全')
+@section('title', '计算机专业名词字典')
 
 @section('css')
 <style>
@@ -59,6 +59,7 @@ function showActiveClass($val)
         <?php $i = 1; ?>
         @foreach ($abbrs as $abbr)
         @if ($i % 4 == 1)
+        <!-- 每行显示 4 个 -->
         <div class="row">
             @endif
             <div class="col-md-3">
@@ -73,6 +74,7 @@ function showActiveClass($val)
             </div>
 
             @if ($i % 4 == 0 || ($i == count($abbrs)))
+            <!-- 行 div 闭合（最后不满 4 个时要闭合） -->
         </div>
         @endif
         <?php $i++ ?>

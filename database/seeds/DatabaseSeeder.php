@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BookmarksTableSeeder::class);
         $this->call(WorksTableSeeder::class);
 		$this->call(PagesTableSeeder::class);
-		$this->call(AbbrsTableSeeder::class);
+        $this->call(AbbrsTableSeeder::class);
+        $this->call(MilestonesTableSeeder::class);
 
         Model::reguard();
     }

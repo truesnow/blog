@@ -24,9 +24,11 @@ class AbbrsController extends Controller
         $countMap = Abbr::getCountMapByFirstLetterGroup();
         $query = Abbr::select();
         if ($request->has('range') && $request->range != '') {
+            // 按字母范围查看
             $query->whereRaw("abbr REGEXP '^[" . $request->range . "]'");
         }
         if ($request->search != '') {
+            // 搜索
             $search = $request->search;
             $query->where(function ($query) use ($search) {
                 $query->where('abbr', '=', $search)

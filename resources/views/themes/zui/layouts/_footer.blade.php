@@ -12,6 +12,7 @@ $pages = Page::where('is_show', 1)->get();
             @foreach ($pages as $k => $page)
             <a href="/{{ $page->name }}">{{ $page->description }}</a>
             @endforeach
+            <a href="{{ route('milestones.index') }}">里程碑</a>
         </div>
         @endif
         <div>
