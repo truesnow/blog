@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Milestone extends Model
 {
-    protected $fillable = ['version', 'content', 'type'];
+    protected $fillable = ['version', 'content', 'detail', 'type'];
 
     /**
      * type-类型(1:前端功能;2:管理后台;3:接口;4:脚本服务)
