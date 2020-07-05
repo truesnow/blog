@@ -13,7 +13,10 @@
     <div class="timeline-wrapper">
         <h2 class="timeline-time">{{ $milestone->version }}</h2>
         <dl class="timeline-series">
-            <dt class="timeline-event" id="{{ $milestone->version }}"><a>{{ $milestone->content }}</a></dt>
+            <dt class="timeline-event" id="{{ 'event-' . $milestone->version }}"><a>{{ $milestone->content }}</a></dt>
+            <dd class="timeline-event-content" id="{{ 'event-content-' . $milestone->version }}">
+                <p style="white-space: pre-line;">{{ $milestone->detail }}</p>
+            </dd>
         </dl>
     </div>
     <br class="clear">
