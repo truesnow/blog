@@ -30,6 +30,7 @@ class MilestonesController extends AdminController
         $grid->column('type', __('Type'))->select(Milestone::TYPE_MAP);
         $grid->column('version', __('Version'));
         $grid->column('content', __('Content'));
+        $grid->column('detail', __('Detail'));
         $grid->column('created_at', __('Created at'))->sortable()->hide();
         $grid->column('updated_at', __('Updated at'))->sortable()->hide();
 
@@ -60,6 +61,7 @@ class MilestonesController extends AdminController
         });
         $show->field('version', __('Version'));
         $show->field('content', __('Content'));
+        $show->field('detail', __('Detail'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -78,6 +80,7 @@ class MilestonesController extends AdminController
         $form->display('id', __('ID'));
         $form->text('version', __('Version'));
         $form->text('content', __('Content'));
+        $form->textarea('detail', __('Detail'));
         $form->select('type', __('Type'))->options(Milestone::TYPE_MAP);
 
         return $form;
