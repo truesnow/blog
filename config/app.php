@@ -178,7 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
-
+        BackupManager\Laravel\Laravel55ServiceProvider::class,
     ],
 
     /*

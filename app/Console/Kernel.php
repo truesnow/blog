@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // 每日零时执行一次
         $schedule->command('blog:sync-user-actived-at')->dailyAt('00:00');
+        $schedule->command('db:backup --database=mysql --destination=dropbox --destinationPath=`date +\%Y/%Y%m%d_%H%M%S` --compression=gzip')
+            ->weekly()->mondays()->at('01:00');
     }
 
     /**
