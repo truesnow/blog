@@ -5,5 +5,5 @@
 
 <div class="row">
     <?php $subjects = $child_subjects; ?>
-    @include('subjects._list')
+    @include('themes.bootstrap.subjects._list')
 </div>

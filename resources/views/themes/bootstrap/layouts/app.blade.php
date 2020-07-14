@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,19 +17,21 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body class="theme-default">
     <div id="app" class="{{ route_class() }}-page">
-        @include('layouts._nav')
+        @include('themes.bootstrap.layouts._nav')
         <div class="container">
             @include('shares._messages')
             @yield('content')
         </div>
-        @include('layouts._footer')
+        @include('themes.bootstrap.layouts._footer')
         @if (config('app.debug') && Auth::check())
-            @include('sudosu::user-selector')
+        @include('sudosu::user-selector')
         @endif
         <script src="/js/app.js"></script>
         @yield('js')
     </div>
 </body>
+
 </html>

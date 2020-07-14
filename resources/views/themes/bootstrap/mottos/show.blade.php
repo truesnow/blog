@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('themes.bootstrap.layouts.app')
 
 @section('content')
 
@@ -16,7 +16,7 @@
                             <a class="btn btn-link" href="{{ route('mottoes.index') }}"><i class="glyphicon glyphicon-backward"></i> Back</a>
                         </div>
                         <div class="col-md-6">
-                             <a class="btn btn-sm btn-warning pull-right" href="{{ route('mottoes.edit', $motto->id) }}">
+                            <a class="btn btn-sm btn-warning pull-right" href="{{ route('mottoes.edit', $motto->id) }}">
                                 <i class="glyphicon glyphicon-edit"></i> Edit
                             </a>
                         </div>
@@ -24,18 +24,18 @@
                 </div>
 
                 <label>Author</label>
-<p>
-	{{ $motto->author }}
-</p> <label>Source</label>
-<p>
-	{{ $motto->source }}
-</p> <label>Portrait</label>
-<p>
-	{{ $motto->portrait }}
-</p> <label>Content</label>
-<p>
-	{{ $motto->content }}
-</p>
+                <p>
+                    {{ $motto->author }}
+                </p> <label>Source</label>
+                <p>
+                    {{ $motto->source }}
+                </p> <label>Portrait</label>
+                <p>
+                    {{ $motto->portrait }}
+                </p> <label>Content</label>
+                <p>
+                    {{ $motto->content }}
+                </p>
             </div>
         </div>
     </div>

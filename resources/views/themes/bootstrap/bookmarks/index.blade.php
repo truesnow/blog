@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('themes.bootstrap.layouts.app')
 
 @section('title', '书签导航')
 

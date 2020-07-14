@@ -1,7 +1,7 @@
 @if (Auth::check())
 
 <div class="reply-box">
-    @include('shares._errors')
+    @include('themes.bootstrap.shares._errors')
     <form action="{{ route('replies.store') }}" method="POST" accept-charset="UTF-8">
         {{ csrf_field() }}
         <input type="hidden" name="article_id" value="{{ $article->id }}">

@@ -32,7 +32,6 @@
             @yield('content')
         </div>
         @include('themes.zui.layouts._footer')
-        <!-- @include('layouts._footer') -->
         @if (config('app.debug') && Auth::check())
             @include('sudosu::user-selector')
         @endif

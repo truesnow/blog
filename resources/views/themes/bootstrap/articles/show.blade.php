@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('themes.bootstrap.layouts.app')
 
 @section('title', $article->title)
 
@@ -38,8 +38,8 @@
 
         <div class="panel panel-default article-reply">
             <div class="panel-body">
-                @include('articles._reply_box', compact('article'))
-                @include('articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
+                @include('themes.bootstrap.articles._reply_box', compact('article'))
+                @include('themes.bootstrap.articles._reply_list', ['replies' => $article->replies()->with('user')->get()])
             </div>
         </div>
 

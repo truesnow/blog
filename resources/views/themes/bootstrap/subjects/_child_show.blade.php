@@ -4,4 +4,4 @@
     <p>{{ $subject->article_count }} 篇文章</p>
 </div>
 
-@include('articles._article_list', compact('articles'))
+@include('themes.bootstrap.articles._article_list', compact('articles'))

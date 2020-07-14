@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('themes.bootstrap.layouts.app')
 
 @section('title', '博客')
 
@@ -14,7 +14,7 @@
                 </ul>
             </div>
             <div class="panel-body">
-                @include('articles._article_list', compact('articles'))
+                @include('themes.bootstrap.articles._article_list', compact('articles'))
                 {!! $articles->appends(Request::except('page'))->render() !!}
             </div>
         </div>
