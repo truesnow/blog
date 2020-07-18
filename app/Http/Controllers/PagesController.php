@@ -15,7 +15,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-        $motto = Motto::last();
+        $motto = Motto::random();
         $articles = Article::listByRecent();
         $article_count = DB::table('articles')->count();
         $subjects = Subject::allSorted();

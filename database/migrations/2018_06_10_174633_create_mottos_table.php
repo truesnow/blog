@@ -19,6 +19,6 @@ class CreateMottosTable extends Migration
 
 	public function down()
 	{
-		Schema::drop('mottoes');
+		Schema::drop('mottos');
 	}
 }

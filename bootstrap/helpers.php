@@ -56,3 +56,22 @@ function theme_prefix()
 
     return '';
 }
+
+/**
+ * 前端页面平铺列表显示辅助函数：是否是行开头
+ * @param showColumnCount 每行显示几列
+ * @param currentDataIndex 当前项循环索引值
+ */
+function is_row_begin($showColumnCount, $currentDataIndex) {
+    return $currentDataIndex % $showColumnCount == 1;
+}
+
+/**
+ * 前端页面平铺列表显示辅助函数：是否是行结束
+ * @param showColumnCount 每行显示几列
+ * @param currentDataIndex 当前项循环索引值
+ * @param totalCount 总数
+ */
+function is_row_end($showColumnCount, $currentDataIndex, $totalCount) {
+    return $currentDataIndex % $showColumnCount == 0 || ($currentDataIndex == $totalCount);
+}

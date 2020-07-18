@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('themes.zui.layouts.app')
 
 @section('title', '查看资源')
 

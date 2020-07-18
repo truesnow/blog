@@ -52,7 +52,7 @@ class ResourcesController extends Controller
         $file = $request->file('file');
         $disk = QiniuStorage::disk('qiniu');
 
-        $name = $disk->put('uploads/images/' . date('Ym'), $file);
+        $name = $disk->put('images/uploads/' . date('Ym'), $file);
         $url = $disk->downloadUrl($name);
         // $url = Storage::url($name);
 

@@ -1,9 +1,23 @@
 {
+    "Id": "ID",
     "ID": "ID",
     "Version": "版本",
     "Content": "内容",
     "Detail": "详情",
     "Type": "类型",
     "Created at": "创建时间",
-    "Updated at": "更新时间"
+    "Updated at": "更新时间",
+    "Name": "名称",
+    "Desc": "描述",
+    "Cover": "封面",
+    "Ordinal": "排序值",
+    "Enable status": "启用状态",
+    "Resource type": "资源类型",
+    "Subject id": "主题ID",
+    "Cate id": "分类ID",
+    "Url": "链接",
+    "Content id": "内容ID",
+    "Record id": "记录ID",
+    "Table": "表",
+    "Content": "内容"
 }

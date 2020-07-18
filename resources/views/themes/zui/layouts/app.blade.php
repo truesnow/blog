@@ -54,7 +54,7 @@
         <!-- ZUI Javascript 依赖 jQuery -->
         <script src="//cdn.bootcss.com/zui/1.8.1/lib/jquery/jquery.js"></script>
         <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
-        <script src="//cdn.bootcss.com/zui/1.8.1/js/zui.min.js"></script>
+        <script src="//cdn.bootcss.com/zui/1.9.1/js/zui.min.js"></script>
         <script src="{{ asset('vendor/layer/layer.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @yield('js')

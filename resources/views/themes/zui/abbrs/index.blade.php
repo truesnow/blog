@@ -1,6 +1,6 @@
 @extends('themes.zui.layouts.app')
 
-@section('title', '计算机专业名词字典')
+@section('title', '计算机专业缩略名词字典')
 
 @section('css')
 <style>
@@ -41,13 +41,13 @@ function showActiveClass($val)
         {{--字母范围导航--}}
         <div class="abbr-nav">
             <ul class="nav nav-secondary nav-stacked">
-                <li{!! showActiveClass('') !!}><a href="{{ route('abbrs.index') }}">全部 <span class="label label-badge">{{ $countMap['total'] }}</span></a></li>
-                    <li{!! showActiveClass('a-g') !!}><a href="{{ route('abbrs.index', ['range' => 'a-g']) }}">A-G <span class="label label-badge">{{ $countMap['ag'] }}</span></a></li>
-                        <li{!! showActiveClass('h-n') !!}><a href="{{ route('abbrs.index', ['range' => 'h-n']) }}">H-N <span class="label label-badge">{{ $countMap['hn'] }}</span></a></li>
-                            <li{!! showActiveClass('opq') !!}><a href="{{ route('abbrs.index', ['range' => 'opq']) }}">OPQ <span class="label label-badge">{{ $countMap['opq'] }}</span></a></li>
-                                <li{!! showActiveClass('rst') !!}><a href="{{ route('abbrs.index', ['range' => 'rst']) }}">RST <span class="label label-badge">{{ $countMap['rst'] }}</span></a></li>
-                                    <li{!! showActiveClass('uvw') !!}><a href="{{ route('abbrs.index', ['range' => 'uvw']) }}">UVW <span class="label label-badge">{{ $countMap['uvw'] }}</span></a></li>
-                                        <li{!! showActiveClass('xyz') !!}><a href="{{ route('abbrs.index', ['range' => 'xyz']) }}">XYZ <span class="label label-badge">{{ $countMap['xyz'] }}</span></a></li>
+                <li{!! showActiveClass('') !!}><a href="{{ route('abbrs') }}">全部 <span class="label label-badge">{{ $countMap['total'] }}</span></a></li>
+                    <li{!! showActiveClass('a-g') !!}><a href="{{ route('abbrs', ['range' => 'a-g']) }}">A-G <span class="label label-badge">{{ $countMap['ag'] }}</span></a></li>
+                        <li{!! showActiveClass('h-n') !!}><a href="{{ route('abbrs', ['range' => 'h-n']) }}">H-N <span class="label label-badge">{{ $countMap['hn'] }}</span></a></li>
+                            <li{!! showActiveClass('opq') !!}><a href="{{ route('abbrs', ['range' => 'opq']) }}">OPQ <span class="label label-badge">{{ $countMap['opq'] }}</span></a></li>
+                                <li{!! showActiveClass('rst') !!}><a href="{{ route('abbrs', ['range' => 'rst']) }}">RST <span class="label label-badge">{{ $countMap['rst'] }}</span></a></li>
+                                    <li{!! showActiveClass('uvw') !!}><a href="{{ route('abbrs', ['range' => 'uvw']) }}">UVW <span class="label label-badge">{{ $countMap['uvw'] }}</span></a></li>
+                                        <li{!! showActiveClass('xyz') !!}><a href="{{ route('abbrs', ['range' => 'xyz']) }}">XYZ <span class="label label-badge">{{ $countMap['xyz'] }}</span></a></li>
             </ul>
         </div>
     </div>
@@ -93,8 +93,7 @@ function showActiveClass($val)
     $(function() {
         $('#abbrSearchBox').searchBox({
             escToClear: true,
-            onSearchChange: function(searchContent, isEmpty) {
-            },
+            onSearchChange: function(searchContent, isEmpty) {},
             onPressEnter: function(event) {
                 doSearch();
             }

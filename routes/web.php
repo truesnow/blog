@@ -54,10 +54,16 @@ Route::get('bookmarks', 'BookmarksController@index')->name('bookmarks.index');
 Route::resource('works', 'WorksController', ['only' => ['index']]);
 
 // 缩略词
-Route::resource('abbrs', 'AbbrsController', ['only' => ['index']]);
+Route::get('abbrs', 'AbbrsController@index')->name('abbrs');
 
 // 里程碑
 Route::resource('milestones', 'MilestonesController', ['only' => ['index']]);
+
+// wiki
+Route::get('wikis', 'WikisController@index')->name('wikis.index');
+Route::get('wikis/{wikiSubject}', 'WikisController@show')->name('wikis.show');
+Route::get('wikis/{wikiSubject}/cate/{wikiCate}', 'WikisController@itemIndex')->name('wikis.items.index');
+Route::get('wikis/{wikiSubject}/cate/{wikiCate}/item/{wikiItem}', 'WikisController@itemShow')->name('wikis.items.show');
 
 /**
  * pages
