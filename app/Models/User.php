@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword;
 use Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -33,6 +35,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $attributes = [
+        'id', 'name', 'email', 'password', 'introduction', 'avatar',
+        'remember_token', 'created_at', 'updated_at', 'is_admin', 'activation_token',
+        'activated', 'notification_count', 'last_activated_at'];
+
     public static function boot()
     {
         parent::boot();
@@ -49,7 +56,7 @@ class User extends Authenticatable
 
     public function gravatar($size = '100')
     {
-        $hash = md5(strtolower(trim($this->attributes['email'])));
+        $hash = md5(strtolower(trim($this->email)));
         return "http://s.gravatar.com/avatar/$hash?s=$size";
     }
 

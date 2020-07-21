@@ -85,10 +85,12 @@ class ArticlesController extends Controller
                 return "<a href='{$user_link}'>{$user_name}</a>";
             });
             $grid->subject_id('所属专题')->select(Subject::getSubOptions(['' => '']));
-            $grid->reply_count('评论数');
-            $grid->view_count('阅读数');
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->reply_count('评论数')->sortable();
+            $grid->view_count('阅读数')->sortable();
+            $grid->created_at('创建时间')->sortable();
+            $grid->updated_at('更新时间')->sortable();
+
+            $grid->model()->orderBy('id', 'desc');
 
             $grid->actions(function ($actions) {
                 // $actions->disableEdit();

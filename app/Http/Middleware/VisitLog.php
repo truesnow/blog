@@ -7,6 +7,7 @@ use Ramsey\Uuid\Uuid;
 use Auth;
 use Route;
 use App\Models\VisitLog as VisitLogModel;
+use Illuminate\Support\Facades\Log;
 
 class VisitLog
 {
@@ -24,9 +25,16 @@ class VisitLog
 
     public function terminate($request, $response)
     {
-        $except_routes = ['login', 'password_reset', 'register', 'signin'];
-        if (in_array(Route::currentRouteName(), $except_routes)) {
+        $except_paths = config('visit-log.except.paths');
+        $except_prefixs = config('visit-log.except.prefixs');
+        $requestPath = $request->path();
+        if (in_array($requestPath, $except_paths)) {
             return false;
+        }
+        for ($i = 0; $i < count($except_prefixs); $i++) {
+            if (starts_with($requestPath, $except_prefixs[$i])) {
+                return false;
+            }
         }
         // 用户访问记录
         $uuid = Uuid::uuid1();
@@ -43,7 +51,7 @@ class VisitLog
             'user_agent' => $request->userAgent(),
             'method' => $request->method(),
             'query_string' => http_build_query($request->query()),
-            'form_data' => json_encode($request->post()),
+            'form_data' => $request->post() == [] ? '' : json_encode($request->post()),
             'description' => Route::currentRouteName(),
             'created_at' => $now,
             'updated_at' => $now,

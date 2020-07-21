@@ -34,6 +34,8 @@ class MilestonesController extends AdminController
         $grid->column('created_at', __('Created at'))->sortable()->hide();
         $grid->column('updated_at', __('Updated at'))->sortable()->hide();
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->filter(function ($filter) {
             $filter->equal('version', '版本');
             $filter->like('content', '内容');

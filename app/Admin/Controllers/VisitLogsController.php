@@ -9,11 +9,9 @@ use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
 
 class VisitLogsController extends Controller
 {
-    use ModelForm;
 
     /**
      * Index interface.
@@ -64,6 +62,13 @@ class VisitLogsController extends Controller
         });
     }
 
+    public function show($id)
+    {
+        return Admin::content(function ($content) use ($id) {
+            $content->body(Admin::show(VisitLog::findOrFail($id)));
+        });
+    }
+
     /**
      * Make a grid builder.
      *
@@ -75,7 +80,7 @@ class VisitLogsController extends Controller
 
             $grid->id('ID')->sortable();
             // $grid->log_id('记录ID');
-            $grid->column('user')->display(function () {
+            $grid->column('user_id')->display(function () {
                 if (!empty($this->user_id) && class_exists($this->user_model)) {
                     $user = $this->user_model::find($this->user_id);
                     if ($user) {
@@ -86,24 +91,30 @@ class VisitLogsController extends Controller
                 } else {
                     return $this->user_id;
                 }
-            });
-            $grid->created_at('访问时间');
+            })->sortable();
+            $grid->created_at('访问时间')->sortable();
             $grid->column('ip', 'IP 地址')->display(function () {
                 return long2ip($this->ip);
-            });
+            })->sortable();
             $grid->column('user_agent', '浏览器');
             $grid->column('method', '请求方式');
             $grid->column('url', '请求 URL');
             $grid->column('query_string', 'GET 参数');
             $grid->column('form_data', 'POST 参数');
 
+            $grid->model()->orderBy('id', 'desc');
+
+            $grid->disableCreateButton();
             $grid->actions(function ($actions) {
                 $actions->disableDelete();
                 $actions->disableEdit();
             });
 
             $grid->filter(function ($filter) {
-                $filter->equal('ip', 'IP 地址')->ip();
+                $filter->where(function ($query) {
+                    $query->where('ip', '=', ip2long($this->input));
+                }, '客户端IP')->ip();
+                // $filter->equal('ip', 'IP 地址')->ip();
                 $filter->like('user_agent', '浏览器');
                 $filter->in('method', '请求方式')->checkbox(['get' => 'GET 请求', 'post' => 'POST 请求']);
                 $filter->equal('url', '请求 URL');
@@ -127,4 +138,5 @@ class VisitLogsController extends Controller
             $form->display('updated_at', 'Updated At');
         });
     }
+
 }

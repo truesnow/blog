@@ -79,8 +79,10 @@ class MottosController extends Controller
             $grid->source('来源');
             $grid->content('格言内容');
 
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->created_at('创建时间')->sortable();
+            $grid->updated_at('更新时间')->sortable();
+
+            $grid->model()->orderBy('id', 'desc');
 
             $grid->filter(function ($filter) {
                 $filter->like('author', '作者');

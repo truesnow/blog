@@ -82,8 +82,10 @@ class AbbrsController extends Controller
             $grid->column('full_name', '全称')->sortable();
             $grid->cn_name('中文名');
             $grid->desc('说明');
-            $grid->created_at('创建时间');
-            $grid->updated_at('更新时间');
+            $grid->created_at('创建时间')->sortable();
+            $grid->updated_at('更新时间')->sortable();
+
+            $grid->model()->orderBy('id', 'desc');
 
             $grid->actions(function ($actions) {
             });

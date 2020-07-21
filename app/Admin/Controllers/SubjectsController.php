@@ -74,7 +74,7 @@ class SubjectsController extends Controller
         return Admin::grid(Subject::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->parent_id('父级专题')->select(Subject::getTopOptions(['' => '']));
+            $grid->parent_id('父级专题')->select(Subject::getTopOptions());
             $grid->name('专题名称')->editable();
             $grid->description('专题描述')->editable('textarea');
             $grid->article_count('文章数量');
@@ -83,7 +83,7 @@ class SubjectsController extends Controller
 
             $grid->filter(function ($filter) {
                 $filter->like('name', '专题名称');
-                $filter->equal('parent_id', '父级专题')->select(Subject::getTopOptions([0 => '顶级专题']));
+                $filter->equal('parent_id', '父级专题')->select(Subject::getTopOptions());
                 $filter->like('description', '专题描述');
             });
         });
@@ -101,7 +101,7 @@ class SubjectsController extends Controller
 
             $form->text('name', '专题名称');
             $form->textarea('description', '专题描述');
-            $form->select('parent_id', '父级专题')->options(Subject::getTopOptions([0 => '一级专题']));
+            $form->select('parent_id', '父级专题')->options(Subject::getTopOptions());
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
         });

@@ -11,6 +11,7 @@ trait OptionsHelper
         foreach ($list as $k => $v) {
             $map[$v['id']] = $v['name'];
         }
+        $map[0] = '顶级专题';
 
         return $map;
     }

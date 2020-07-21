@@ -19,5 +19,6 @@
     "Content id": "内容ID",
     "Record id": "记录ID",
     "Table": "表",
-    "Content": "内容"
+    "User id": "用户ID",
+    "Email": "邮箱"
 }

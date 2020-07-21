@@ -26,6 +26,9 @@ class PagesController extends Controller
     public function show($name)
     {
         $page = Page::where('name', $name)->first();
+        if (is_null($page)) {
+            abort(404);
+        }
         $page->increment('view_count', 1);
 
         return $this->view('pages.show', compact('page'));
