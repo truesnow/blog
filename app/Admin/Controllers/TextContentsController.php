@@ -36,6 +36,8 @@ class TextContentsController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->filter(function($filter) {
             $filter->equal('table', __('Table'));
             $filter->equal('record_id', __('Record id'));

@@ -6,7 +6,18 @@ use App\Models\WikiCate;
 
 @section('title', 'wiki - ' . $wikiSubject->name . ' - ' . $wikiCate->name)
 
+@section("css")
+<style>
+  .wiki-item-img {
+    width: 200px;
+    height: 300px;
+  }
+</style>
+@stop
+
 @section('content')
+
+@include('themes.zui.wikis._breadcrumb', compact('wikiSubject', 'wikiCates'))
 
 @include('themes.zui.wikis._cate', compact('wikiSubject', 'wikiCates', 'cateToItemCountMap'))
 
@@ -26,7 +37,7 @@ use App\Models\WikiCate;
 <div class="wrapper" style="margin-top: 10px;">
   @foreach ($wikiItems as $wikiItem)
   <a href="{{ $wikiItem->url }}" data-toggle="lightbox" data-caption="{{ $wikiItem->desc }}" data-group="wiki-subject-{{ $wikiSubject->id }}-cate-{{ $wikiCate->id }}">
-    <img src="{{ $wikiItem->url }}" class="img-rounded" alt="{{ $wikiItem->name }}">
+    <img src="{{ $wikiItem->url }}" class="img-rounded  wiki-item-img" alt="{{ $wikiItem->name }}">
   </a>
   @endforeach
 </div>

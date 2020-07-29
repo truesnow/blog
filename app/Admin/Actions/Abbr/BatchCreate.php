@@ -25,8 +25,8 @@ class BatchCreate extends Action
                 continue;
             }
             $abbrArr = explode("=", $data);
-            if (count($abbrArr) != 3) {
-                // 非 A=B=C 格式
+            if (count($abbrArr) != 3 && count($abbrArr) != 4) {
+                // 非 A=B=C 或 A=B=C=D 格式
                 $failLine[] = $data;
                 continue;
             }
@@ -34,6 +34,7 @@ class BatchCreate extends Action
                 'abbr' => trim($abbrArr[0]),
                 'full_name' => trim($abbrArr[1]),
                 'cn_name' => trim($abbrArr[2]),
+                'desc' => isset($abbrArr[3]) ? trim($abbrArr[3]) : '',
             ];
             $abbrs[] = $abbr;
         }
@@ -50,7 +51,7 @@ class BatchCreate extends Action
     }
 
     public function form() {
-        $this->textarea('data', '填入数据（每行一条，格式：A = B = C）');
+        $this->textarea('data', '填入数据（每行一条，格式：A = B = C 或 A = B = C = D）');
     }
 
     public function html()

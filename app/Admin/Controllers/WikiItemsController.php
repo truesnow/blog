@@ -45,6 +45,8 @@ class WikiItemsController extends AdminController
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
+        $grid->model()->orderBy('id', 'desc');
+
         $grid->filter(function($filter){
             $filter->equal('subject_id', __('Subject id'))->select(WikiSubject::getFieldMap('id', 'name'));
             $filter->equal('cate_id', __('Cate id'))->select(WikiCate::getFieldMap('id', 'name'));

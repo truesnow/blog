@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('themes.zui.wikis._breadcrumb', compact('wikiSubject'))
+
 @include('themes.zui.wikis._cate', compact('wikiSubject', 'wikiCates', 'cateToItemCountMap'))
 
 <div class="row">

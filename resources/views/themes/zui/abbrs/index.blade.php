@@ -11,6 +11,10 @@
     .abbr-nav .label {
         float: right;
     }
+
+    .abbrDesc {
+        word-break: break-word;
+    }
 </style>
 @stop
 
@@ -68,7 +72,7 @@ function showActiveClass($val)
                     <div class="panel-body">
                         <p class="hl-green">{{ $abbr['full_name'] }}</p>
                         <p class="hl-yellow">{{ $abbr['cn_name'] }}</p>
-                        <small class="text-muted">{{ $abbr['desc'] }}</small>
+                        <small class="text-muted abbrDesc">{{ $abbr['desc'] }}</small>
                     </div>
                 </div>
             </div>

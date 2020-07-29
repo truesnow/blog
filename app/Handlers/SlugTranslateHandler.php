@@ -4,6 +4,7 @@ namespace App\Handlers;
 
 use GuzzleHttp\Client;
 use Overtrue\Pinyin\Pinyin;
+use Illuminate\Support\Facades\Log;
 
 class SlugTranslateHandler
 {
@@ -39,9 +40,13 @@ class SlugTranslateHandler
         ]);
 
         // 发送 HTTP Get 请求
-        $response = $http->get($api.$query);
+        $url = $api . $query;
+        $response = $http->get($url);
+        $responseBody = $response->getBody();
 
-        $result = json_decode($response->getBody(), true);
+        $result = json_decode($responseBody, true);
+
+        Log::info('百度翻译请求:' . $url . ' 响应为:' . $responseBody);
 
         /**
         获取结果，如果请求成功，dd($result) 结果如下：
