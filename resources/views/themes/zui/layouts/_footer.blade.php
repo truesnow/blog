@@ -17,7 +17,7 @@ $pages = Page::where('is_show', 1)->get();
         </div>
         @endif
         <div>
-            &copy; 2018-{{ date('Y') }} <a href="/images/truesnow-wechat-qrcode.png" target="_blank" title="微信号：{{ env('AUTHOR_WECHAT', '') }}" class="wechat-qrcode">truesnow</a> - <a href="http://www.miibeian.gov.cn" target="_blank">{{ env('ICP', '') }}</a>
+            &copy; 2018-{{ date('Y') }} <a href="/images/truesnow-wechat-qrcode.png" target="_blank" title="微信号：{{ env('AUTHOR_WECHAT', '') }}" class="wechat-qrcode">truesnow</a> - <a href="https://beian.miit.gov.cn/" target="_blank">{{ env('ICP', '') }}</a>
         </div>
     </div>
 </footer>
